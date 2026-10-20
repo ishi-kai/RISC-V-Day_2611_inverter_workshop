@@ -4,10 +4,10 @@
 各インバータ回路を「DUT」と呼称し、[DUTのテンプレート](https://github.com/ishi-kai/RISC-V-Day_MPW_template.git)を投稿してもらうことで自動で所定の場所にマージするシステムとなっています。  
 
 - [DUTのテンプレート](https://github.com/ishi-kai/RISC-V-Day_MPW_template.git)
-- ![DUT map](images/dut_map.png)
     - 各 DUT の色は投稿の処理状況（自動で更新。詳細は [report](report/) の `NNN_<日時>.md`）:
       **緑** ＝ 取り込み済み、**黄** ＝ 取り込み済みだがその後の再投稿がエラー（取り込み済みのものを使用）、
       **赤** ＝ 投稿があったがエラーのため取り込めていない、**薄青** ＝ 未投稿
+- ![DUT map](images/dut_map.svg)
 - ![workshop_inverter](images/workshop_inverter.png)
 
 
@@ -72,9 +72,7 @@ MPWとして複数人で枠をシェアするため、DUTとして利用でき�
 | 赤 | 投稿があったがエラーのため取り込めていない（修正して再投稿してください） |
 | 薄青 | 未投稿 |
 
-- ![DUT map](images/dut_map.png)
 - ![DUT map](images/dut_map.svg)
-
 
 
 # 詳細解説

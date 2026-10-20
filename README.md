@@ -27,7 +27,7 @@
 #### WSLイメージのダウンロード
 下記からダウンロードしてください。ダウンロード後、適当なディレクトリに解凍してください。  
 
-- [WSLイメージのダウンロード]()
+- [WSLイメージのダウンロード](https://1drv.ms/u/c/5b2da16fa1785921/IQAYKAR9Itt1QpfMKvila5a1AXS2cEI7ZkqgZE0gu0h6hfc?e=wejwlz)
 
 
 #### WSLイメージのセットアップ

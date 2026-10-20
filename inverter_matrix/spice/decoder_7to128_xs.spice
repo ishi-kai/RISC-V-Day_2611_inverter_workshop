@@ -1,0 +1,426 @@
+* decoder_7to128 (LibreLane extracted netlist) + xschem port-order wrapper
+* Needs: .include $PDK_ROOT/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice
+
+.subckt decoder_7to128 VDD VSS dec_in[0] dec_in[1] dec_in[2] dec_in[3] dec_in[4] dec_in[5]
++ dec_in[6] dec_out[0] dec_out[100] dec_out[101] dec_out[102] dec_out[103] dec_out[104]
++ dec_out[105] dec_out[106] dec_out[107] dec_out[108] dec_out[109] dec_out[10] dec_out[110]
++ dec_out[111] dec_out[112] dec_out[113] dec_out[114] dec_out[115] dec_out[116] dec_out[117]
++ dec_out[118] dec_out[119] dec_out[11] dec_out[120] dec_out[121] dec_out[122] dec_out[123]
++ dec_out[124] dec_out[125] dec_out[126] dec_out[127] dec_out[12] dec_out[13] dec_out[14]
++ dec_out[15] dec_out[16] dec_out[17] dec_out[18] dec_out[19] dec_out[1] dec_out[20]
++ dec_out[21] dec_out[22] dec_out[23] dec_out[24] dec_out[25] dec_out[26] dec_out[27]
++ dec_out[28] dec_out[29] dec_out[2] dec_out[30] dec_out[31] dec_out[32] dec_out[33]
++ dec_out[34] dec_out[35] dec_out[36] dec_out[37] dec_out[38] dec_out[39] dec_out[3]
++ dec_out[40] dec_out[41] dec_out[42] dec_out[43] dec_out[44] dec_out[45] dec_out[46]
++ dec_out[47] dec_out[48] dec_out[49] dec_out[4] dec_out[50] dec_out[51] dec_out[52]
++ dec_out[53] dec_out[54] dec_out[55] dec_out[56] dec_out[57] dec_out[58] dec_out[59]
++ dec_out[5] dec_out[60] dec_out[61] dec_out[62] dec_out[63] dec_out[64] dec_out[65]
++ dec_out[66] dec_out[67] dec_out[68] dec_out[69] dec_out[6] dec_out[70] dec_out[71]
++ dec_out[72] dec_out[73] dec_out[74] dec_out[75] dec_out[76] dec_out[77] dec_out[78]
++ dec_out[79] dec_out[7] dec_out[80] dec_out[81] dec_out[82] dec_out[83] dec_out[84]
++ dec_out[85] dec_out[86] dec_out[87] dec_out[88] dec_out[89] dec_out[8] dec_out[90]
++ dec_out[91] dec_out[92] dec_out[93] dec_out[94] dec_out[95] dec_out[96] dec_out[97]
++ dec_out[98] dec_out[99] dec_out[9]
+Xfanout149 _208_/A3 _198_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_062_ _042_/I _080_/A2 _044_/I _093_/A2 _095_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_131_ _134_/A1 _133_/A3 _197_/A3 _131_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_200_ _207_/A1 _207_/A2 _208_/A3 _200_/A4 _200_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_114_ _122_/A1 _129_/A3 _182_/A3 _114_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_045_ _045_/I _093_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+Xoutput31 _202_/ZN dec_out[120] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput97 _147_/ZN dec_out[65] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput75 _124_/ZN dec_out[45] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput64 _113_/ZN dec_out[35] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput53 _100_/ZN dec_out[25] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput86 _135_/Z dec_out[55] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput20 _192_/ZN dec_out[110] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput42 _086_/ZN dec_out[15] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_130_ _134_/A1 _138_/A2 _143_/A3 _196_/A4 _130_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_061_ _089_/A1 _089_/A3 _182_/A3 _061_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_113_ _122_/A1 _129_/A3 _181_/A3 _113_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_044_ _044_/I _102_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+Xoutput32 _203_/ZN dec_out[121] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput65 _114_/ZN dec_out[36] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput10 _183_/ZN dec_out[101] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput98 _148_/ZN dec_out[66] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput87 _137_/ZN dec_out[56] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput76 _125_/ZN dec_out[46] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput54 _101_/ZN dec_out[26] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput8 _052_/ZN dec_out[0] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput43 _088_/ZN dec_out[16] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput21 _193_/ZN dec_out[111] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_060_ _044_/I _093_/A2 _101_/A2 _104_/A4 _182_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_189_ _197_/A1 _198_/A2 _189_/A3 _189_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_112_ _122_/A1 _124_/A2 _129_/A3 _196_/A4 _112_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_043_ _043_/I _080_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+Xoutput33 _204_/ZN dec_out[122] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput22 _194_/ZN dec_out[112] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput9 _182_/ZN dec_out[100] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput99 _149_/ZN dec_out[67] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput88 _138_/ZN dec_out[57] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput44 _089_/ZN dec_out[17] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput77 _126_/ZN dec_out[47] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput11 _184_/ZN dec_out[102] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput66 _115_/ZN dec_out[37] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput55 _103_/ZN dec_out[27] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_188_ _197_/A1 _046_/I _208_/A3 _204_/A4 _188_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_111_ _122_/A1 _124_/A2 _129_/A3 _195_/A4 _111_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_042_ _042_/I _082_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+Xwire136 _071_/ZN wire136/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkbuf_1
+Xoutput34 _205_/ZN dec_out[123] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput67 _116_/ZN dec_out[38] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput56 _105_/ZN dec_out[28] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput12 _185_/Z dec_out[103] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput89 _139_/ZN dec_out[58] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput78 _128_/ZN dec_out[48] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput23 _195_/ZN dec_out[113] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput45 _090_/ZN dec_out[18] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_187_ _197_/A1 _046_/I _198_/A2 _203_/A4 _187_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xwire137 _083_/A4 _208_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_2
+X_041_ _041_/I _186_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+X_110_ _139_/A1 _135_/A2 _133_/A3 _178_/A4 _110_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput35 _206_/ZN dec_out[124] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput57 _106_/ZN dec_out[29] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput46 _092_/ZN dec_out[19] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput24 _196_/ZN dec_out[114] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput13 _186_/ZN dec_out[104] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput79 _129_/ZN dec_out[49] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput68 _117_/Z dec_out[39] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_186_ _186_/A1 _186_/A2 _186_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_169_ _041_/I _169_/A2 _182_/A2 _201_/A4 _169_/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and4_1
+Xoutput36 _207_/ZN dec_out[125] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput14 _187_/ZN dec_out[105] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput69 _059_/ZN dec_out[3] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput58 _056_/ZN dec_out[2] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput47 _054_/ZN dec_out[1] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput25 _197_/ZN dec_out[115] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_185_ _201_/A1 _207_/A2 _201_/A3 _201_/A4 _185_/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and4_1
+X_168_ _175_/A1 _208_/A2 _047_/I _200_/A4 _168_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_099_ _041_/I _164_/A3 _170_/A3 _099_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xoutput37 _208_/ZN dec_out[126] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput26 _198_/ZN dec_out[116] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput15 _188_/ZN dec_out[106] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput48 _094_/ZN dec_out[20] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput59 _107_/ZN dec_out[30] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_184_ _197_/A1 _046_/I _198_/A2 _200_/A4 _184_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_098_ _136_/A1 _159_/A2 _136_/A4 _170_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand3_1
+X_167_ _175_/A1 _208_/A2 _047_/I _199_/A4 _167_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput38 _209_/ZN dec_out[127] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput49 _095_/ZN dec_out[21] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput16 _189_/ZN dec_out[107] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput27 _199_/ZN dec_out[117] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_183_ _197_/A1 _046_/I _198_/A2 _199_/A4 _183_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_166_ _175_/A1 _047_/I _198_/A3 _166_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_097_ _135_/A1 _124_/A2 _133_/A3 _201_/A4 _097_/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and4_1
+X_149_ _159_/A1 _158_/A2 _181_/A3 _149_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xoutput39 _079_/ZN dec_out[12] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput17 _190_/ZN dec_out[108] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput28 _200_/ZN dec_out[118] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_182_ _182_/A1 _182_/A2 _182_/A3 _182_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_096_ _096_/A1 _101_/A2 _096_/A3 _096_/A4 _096_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_165_ _175_/A1 _047_/I _197_/A3 _165_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_148_ _159_/A1 _159_/A2 _158_/A2 _196_/A4 _148_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput29 _201_/Z dec_out[119] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_079_ _096_/A1 _096_/A3 _190_/A3 _079_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xoutput18 _191_/ZN dec_out[109] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_181_ _182_/A1 _182_/A2 _181_/A3 _181_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_095_ _096_/A1 _101_/A2 _096_/A3 _095_/A4 _095_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_164_ _175_/A1 _208_/A2 _164_/A3 _196_/A4 _164_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_078_ input3/Z _045_/I _101_/A2 _104_/A4 _190_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_147_ _159_/A1 _159_/A2 _158_/A2 _195_/A4 _147_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput19 _075_/ZN dec_out[10] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_180_ _182_/A1 _046_/I _182_/A2 _196_/A4 _180_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_094_ _096_/A1 _096_/A3 _198_/A3 _094_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_163_ _175_/A1 _208_/A2 _164_/A3 _195_/A4 _163_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_077_ _089_/A1 _096_/A3 _189_/A3 _077_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_146_ _159_/A1 _169_/A2 _164_/A3 _178_/A4 _146_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_129_ _134_/A1 _138_/A2 _129_/A3 _195_/A4 _129_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_093_ input3/Z _093_/A2 _104_/A3 _104_/A4 _198_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_162_ _162_/A1 _162_/A2 _162_/A3 _162_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xinput1 dec_in[0] input1/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_076_ _102_/A1 _045_/I _101_/A2 _057_/Z _189_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_145_ _201_/A1 _209_/A2 _145_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_059_ _089_/A1 _089_/A3 _181_/A3 _059_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_128_ _139_/A1 _194_/A2 _128_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_161_ _162_/A1 _169_/A2 _162_/A2 _193_/A4 _161_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_092_ _096_/A1 _096_/A3 _197_/A3 _092_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xinput2 dec_in[1] input2/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_144_ _046_/I _201_/A3 _084_/Z _209_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand3_1
+X_075_ _096_/A1 _086_/A2 _096_/A3 _101_/A4 _075_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_127_ _135_/A2 _135_/A3 _127_/A3 _194_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand3_1
+X_058_ _102_/A1 _093_/A2 _101_/A2 _057_/Z _181_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_091_ _102_/A1 _093_/A2 _104_/A3 _057_/Z _197_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_160_ _162_/A1 _169_/A2 _162_/A2 _208_/A4 _160_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xinput3 dec_in[2] input3/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_143_ _041_/I _143_/A2 _143_/A3 _208_/A4 _143_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_074_ _082_/A1 _043_/I _102_/A1 _045_/I _101_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_057_ _042_/I _043_/I _057_/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_126_ _139_/A1 _135_/A2 _133_/A3 _193_/A4 _126_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_109_ _041_/I _047_/I _177_/A3 _109_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_090_ _096_/A1 _101_/A2 _096_/A3 _090_/A4 _090_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xinput4 dec_in[3] input4/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_142_ _041_/I _143_/A2 _143_/A3 _207_/A4 _142_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_073_ _089_/A1 _086_/A2 _089_/A3 _073_/A4 _073_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_125_ _139_/A1 _135_/A2 _133_/A3 _208_/A4 _125_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_056_ _089_/A1 _086_/A2 _089_/A3 _090_/A4 _056_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_108_ _159_/A2 _084_/Z _177_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+Xinput5 dec_in[4] input5/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_072_ _042_/I _080_/A2 _102_/A1 _045_/I _073_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_141_ _041_/I _143_/A3 _206_/A3 _141_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_124_ _134_/A1 _124_/A2 _129_/A3 _207_/A4 _124_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_055_ _082_/A1 _043_/I _102_/A1 _093_/A2 _090_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_107_ _139_/A1 _138_/A2 _107_/A3 _208_/A4 _107_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xinput6 dec_in[5] input6/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_140_ _041_/I _143_/A3 _205_/A3 _140_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_071_ _041_/I _159_/A2 _164_/A3 _154_/A4 _071_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_123_ _134_/A1 _129_/A3 _190_/A3 _123_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_054_ _089_/A1 _086_/A2 _089_/A3 _089_/A4 _054_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_106_ _122_/A1 _138_/A2 _107_/A3 _106_/A4 _106_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xinput7 dec_in[6] input7/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_070_ _136_/A1 _136_/A4 _154_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_199_ _207_/A1 _207_/A2 _207_/A3 _199_/A4 _199_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput130 _177_/ZN dec_out[95] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_122_ _122_/A1 _129_/A3 _189_/A3 _122_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_053_ _042_/I _080_/A2 _102_/A1 _093_/A2 _089_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_105_ _122_/A1 _107_/A3 _206_/A3 _105_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_198_ _207_/A1 _198_/A2 _198_/A3 _198_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xoutput131 _178_/ZN dec_out[96] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput120 _168_/ZN dec_out[86] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_052_ _089_/A1 _086_/A2 _089_/A3 _178_/A4 _052_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_121_ _134_/A1 _124_/A2 _133_/A3 _204_/A4 _121_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_104_ input3/Z _045_/I _104_/A3 _104_/A4 _206_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+Xmax_cap141 _096_/A4 _200_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_2
+X_197_ _197_/A1 _198_/A2 _197_/A3 _197_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xoutput110 _159_/ZN dec_out[77] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput132 _179_/ZN dec_out[97] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput121 _169_/Z dec_out[87] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_120_ _122_/A1 _124_/A2 _129_/A3 _203_/A4 _120_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_051_ _093_/A2 _051_/A2 _178_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_103_ _103_/A1 _107_/A3 _205_/A3 _103_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xmax_cap142 _095_/A4 _199_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_2
+X_196_ _197_/A1 _207_/A2 _198_/A2 _196_/A4 _196_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_050_ _042_/I _043_/I _044_/I _136_/A1 _127_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput122 _170_/ZN dec_out[88] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput111 _160_/ZN dec_out[78] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput100 _150_/ZN dec_out[68] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput133 _180_/ZN dec_out[98] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_179_ _182_/A1 _046_/I _182_/A2 _195_/A4 _179_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xfanout190 input5/Z _201_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_102_ _102_/A1 _045_/I _104_/A3 _057_/Z _205_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+Xmax_cap143 _090_/A4 _196_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_2
+X_195_ _197_/A1 _207_/A2 _198_/A2 _195_/A4 _195_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput112 _161_/ZN dec_out[79] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput123 _171_/ZN dec_out[89] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput101 _151_/ZN dec_out[69] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput134 _181_/ZN dec_out[99] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_178_ _182_/A1 _046_/I _182_/A2 _178_/A4 _178_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_101_ _103_/A1 _101_/A2 _107_/A3 _101_/A4 _101_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xfanout180 _162_/A2 _201_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout191 input4/Z _045_/I VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xmax_cap144 _089_/A4 _195_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_2
+X_194_ _209_/A1 _194_/A2 _194_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+Xoutput124 wire136/Z dec_out[8] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput135 _073_/ZN dec_out[9] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput113 _069_/ZN dec_out[7] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput102 _065_/ZN dec_out[6] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_177_ _182_/A1 _201_/A3 _177_/A3 _177_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_100_ _103_/A1 _101_/A2 _107_/A3 _203_/A4 _100_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xfanout192 input4/Z _136_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout181 _135_/A3 _162_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout170 _139_/A1 _134_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xmax_cap145 _051_/A2 _136_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+X_193_ _209_/A1 _201_/A2 _208_/A3 _193_/A4 _193_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput103 _152_/ZN dec_out[70] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput114 _162_/ZN dec_out[80] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput125 _172_/ZN dec_out[90] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_176_ _182_/A1 _207_/A2 _201_/A3 _208_/A4 _176_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xfanout193 input3/Z _044_/I VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout182 input6/Z _135_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout160 _186_/A1 _135_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout171 _201_/A1 _139_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_159_ _159_/A1 _159_/A2 _164_/A3 _207_/A4 _159_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_192_ _209_/A1 _201_/A2 _208_/A3 _208_/A4 _192_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput126 _173_/ZN dec_out[91] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput104 _153_/ZN dec_out[71] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput115 _163_/ZN dec_out[81] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_175_ _175_/A1 _207_/A2 _047_/I _207_/A4 _175_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xfanout194 input2/Z _043_/I VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout172 _201_/A1 _041_/I VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout183 _104_/A3 _086_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout150 _208_/A3 _207_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout161 _182_/A1 _175_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_158_ _159_/A1 _158_/A2 _190_/A3 _158_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_089_ _089_/A1 _101_/A2 _089_/A3 _089_/A4 _089_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_191_ _197_/A1 _046_/I _198_/A2 _207_/A4 _191_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput116 _164_/ZN dec_out[82] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput105 _154_/ZN dec_out[72] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput127 _174_/ZN dec_out[92] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_174_ _175_/A1 _047_/I _206_/A3 _174_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xfanout184 _104_/A3 _124_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout151 _182_/A2 _208_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout162 _186_/A1 _182_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout195 input1/Z _042_/I VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout173 input7/Z _201_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_088_ _103_/A1 _107_/A3 _162_/A3 _088_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_157_ _159_/A1 _158_/A2 _189_/A3 _157_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_209_ _209_/A1 _209_/A2 _209_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_190_ _197_/A1 _198_/A2 _190_/A3 _190_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xoutput128 _175_/ZN dec_out[93] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput117 _165_/ZN dec_out[83] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput106 _155_/ZN dec_out[73] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_173_ _175_/A1 _047_/I _205_/A3 _173_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xfanout185 _104_/A3 _135_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout163 _209_/A1 _197_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout174 _096_/A3 _089_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_156_ _162_/A1 _159_/A2 _158_/A2 _204_/A4 _156_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_087_ _124_/A2 _127_/A3 _162_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+Xfanout152 _047_/ZN _182_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xmax_cap138 _106_/A4 _207_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_2
+X_139_ _139_/A1 _143_/A2 _143_/A3 _204_/A4 _139_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_208_ _209_/A1 _208_/A2 _208_/A3 _208_/A4 _208_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput118 _166_/ZN dec_out[84] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput107 _156_/ZN dec_out[74] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput129 _176_/ZN dec_out[94] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_172_ _182_/A1 _208_/A2 _201_/A3 _204_/A4 _172_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xfanout186 input5/Z _104_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_086_ _103_/A1 _086_/A2 _107_/A3 _193_/A4 _086_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xfanout175 _107_/A3 _096_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout164 _209_/A1 _207_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_155_ _159_/A1 _159_/A2 _158_/A2 _203_/A4 _155_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xfanout153 _138_/A2 _101_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xmax_cap139 _101_/A4 _204_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_2
+X_069_ _103_/A1 _068_/Z _069_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_207_ _207_/A1 _207_/A2 _207_/A3 _207_/A4 _207_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_138_ _139_/A1 _138_/A2 _143_/A3 _203_/A4 _138_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xoutput108 _157_/ZN dec_out[75] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput90 _140_/ZN dec_out[59] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput119 _167_/ZN dec_out[85] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_171_ _175_/A1 _208_/A2 _047_/I _203_/A4 _171_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xfanout187 _201_/A2 _159_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout176 _135_/A3 _107_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout154 _143_/A2 _138_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout165 _186_/A1 _209_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_154_ _162_/A1 _169_/A2 _164_/A3 _154_/A4 _154_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_085_ _044_/I _045_/I _057_/Z _193_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand3_1
+X_068_ _136_/A1 _124_/A2 _107_/A3 _068_/A4 _068_/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__or4_1
+X_206_ _207_/A1 _207_/A3 _206_/A3 _206_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_137_ _041_/I _202_/A2 _137_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+Xoutput109 _158_/ZN dec_out[76] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput91 _063_/ZN dec_out[5] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput80 _061_/ZN dec_out[4] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_170_ _182_/A1 _201_/A3 _170_/A3 _170_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xfanout166 _096_/A1 _089_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout155 _208_/A2 _207_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout177 _164_/A3 _158_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout188 _201_/A2 _169_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_153_ _162_/A1 _068_/Z _153_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_084_ input1/Z input2/Z input3/Z _136_/A1 _084_/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and4_1
+X_136_ _136_/A1 _169_/A2 _164_/A3 _136_/A4 _202_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_205_ _207_/A1 _207_/A3 _205_/A3 _205_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_067_ _136_/A1 _068_/A4 _201_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_119_ _139_/A1 _186_/A2 _119_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+Xoutput92 _141_/ZN dec_out[60] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput70 _119_/ZN dec_out[40] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput81 _130_/ZN dec_out[50] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout178 _162_/A2 _164_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout189 _201_/A2 _046_/I VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout167 _103_/A1 _096_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout156 _143_/A2 _208_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_083_ _096_/A1 _086_/A2 _096_/A3 _083_/A4 _083_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_152_ _162_/A1 _159_/A2 _158_/A2 _200_/A4 _152_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_204_ _207_/A1 _207_/A2 _207_/A3 _204_/A4 _204_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_066_ _042_/I _043_/I _044_/I _068_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand3_1
+X_135_ _135_/A1 _135_/A2 _135_/A3 _201_/A4 _135_/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and4_1
+X_049_ _042_/I _043_/I _044_/I _051_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xwire140 _073_/A4 _203_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_2
+X_118_ _136_/A1 _138_/A2 _164_/A3 _136_/A4 _186_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+Xoutput82 _131_/ZN dec_out[51] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput60 _109_/ZN dec_out[31] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput93 _142_/ZN dec_out[61] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput71 _120_/ZN dec_out[41] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout168 _201_/A1 _103_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_082_ _082_/A1 _043_/I _044_/I _045_/I _083_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_151_ _159_/A1 _159_/A2 _158_/A2 _199_/A4 _151_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Xfanout146 _133_/A3 _129_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout157 _046_/ZN _143_/A2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout179 _162_/A2 _047_/I VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_203_ _207_/A1 _207_/A2 _207_/A3 _203_/A4 _203_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_065_ _096_/A1 _086_/A2 _089_/A3 _096_/A4 _065_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_134_ _134_/A1 _138_/A2 _143_/A3 _200_/A4 _134_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_117_ _135_/A1 _138_/A2 _135_/A3 _201_/A4 _117_/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and4_1
+X_048_ _042_/I _043_/I _104_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+Xoutput72 _121_/ZN dec_out[42] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput94 _143_/ZN dec_out[62] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput83 _132_/ZN dec_out[52] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput61 _110_/ZN dec_out[32] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput50 _096_/ZN dec_out[22] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout147 _143_/A3 _133_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_150_ _159_/A1 _158_/A2 _182_/A3 _150_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Xfanout169 _134_/A1 _122_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout158 _135_/A1 _159_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_081_ _089_/A1 _086_/A2 _089_/A3 _106_/A4 _081_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_133_ _134_/A1 _138_/A2 _133_/A3 _199_/A4 _133_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_202_ _209_/A1 _202_/A2 _202_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_064_ _082_/A1 _043_/I _044_/I _093_/A2 _096_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_116_ _122_/A1 _124_/A2 _133_/A3 _200_/A4 _116_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_047_ _047_/I _047_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+Xoutput95 _145_/ZN dec_out[63] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput84 _133_/ZN dec_out[53] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput51 _097_/Z dec_out[23] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput40 _081_/ZN dec_out[13] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput73 _122_/ZN dec_out[43] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput62 _111_/ZN dec_out[33] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xfanout159 _135_/A1 _162_/A1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_080_ _042_/I _080_/A2 _044_/I _045_/I _106_/A4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+Xfanout148 _047_/ZN _143_/A3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+X_132_ _134_/A1 _133_/A3 _198_/A3 _132_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_201_ _201_/A1 _201_/A2 _201_/A3 _201_/A4 _201_/Z VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and4_1
+X_063_ _089_/A1 _086_/A2 _089_/A3 _095_/A4 _063_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_115_ _122_/A1 _124_/A2 _129_/A3 _199_/A4 _115_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_046_ _046_/I _046_/ZN VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+Xoutput41 _083_/ZN dec_out[14] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput30 _077_/ZN dec_out[11] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput52 _099_/ZN dec_out[24] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput85 _134_/ZN dec_out[54] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput63 _112_/ZN dec_out[34] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput96 _146_/ZN dec_out[64] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+Xoutput74 _123_/ZN dec_out[44] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
+.ends
+
+.subckt decoder_7to128_xs VDD VSS dec_in[6] dec_in[5] dec_in[4] dec_in[3] dec_in[2] dec_in[1]
++ dec_in[0] dec_out[127] dec_out[126] dec_out[125] dec_out[124] dec_out[123] dec_out[122]
++ dec_out[121] dec_out[120] dec_out[119] dec_out[118] dec_out[117] dec_out[116] dec_out[115]
++ dec_out[114] dec_out[113] dec_out[112] dec_out[111] dec_out[110] dec_out[109] dec_out[108]
++ dec_out[107] dec_out[106] dec_out[105] dec_out[104] dec_out[103] dec_out[102] dec_out[101]
++ dec_out[100] dec_out[99] dec_out[98] dec_out[97] dec_out[96] dec_out[95] dec_out[94] dec_out[93]
++ dec_out[92] dec_out[91] dec_out[90] dec_out[89] dec_out[88] dec_out[87] dec_out[86] dec_out[85]
++ dec_out[84] dec_out[83] dec_out[82] dec_out[81] dec_out[80] dec_out[79] dec_out[78] dec_out[77]
++ dec_out[76] dec_out[75] dec_out[74] dec_out[73] dec_out[72] dec_out[71] dec_out[70] dec_out[69]
++ dec_out[68] dec_out[67] dec_out[66] dec_out[65] dec_out[64] dec_out[63] dec_out[62] dec_out[61]
++ dec_out[60] dec_out[59] dec_out[58] dec_out[57] dec_out[56] dec_out[55] dec_out[54] dec_out[53]
++ dec_out[52] dec_out[51] dec_out[50] dec_out[49] dec_out[48] dec_out[47] dec_out[46] dec_out[45]
++ dec_out[44] dec_out[43] dec_out[42] dec_out[41] dec_out[40] dec_out[39] dec_out[38] dec_out[37]
++ dec_out[36] dec_out[35] dec_out[34] dec_out[33] dec_out[32] dec_out[31] dec_out[30] dec_out[29]
++ dec_out[28] dec_out[27] dec_out[26] dec_out[25] dec_out[24] dec_out[23] dec_out[22] dec_out[21]
++ dec_out[20] dec_out[19] dec_out[18] dec_out[17] dec_out[16] dec_out[15] dec_out[14] dec_out[13]
++ dec_out[12] dec_out[11] dec_out[10] dec_out[9] dec_out[8] dec_out[7] dec_out[6] dec_out[5]
++ dec_out[4] dec_out[3] dec_out[2] dec_out[1] dec_out[0]
+Xdec VDD VSS dec_in[0] dec_in[1] dec_in[2] dec_in[3] dec_in[4] dec_in[5] dec_in[6] dec_out[0]
++ dec_out[100] dec_out[101] dec_out[102] dec_out[103] dec_out[104] dec_out[105] dec_out[106]
++ dec_out[107] dec_out[108] dec_out[109] dec_out[10] dec_out[110] dec_out[111] dec_out[112]
++ dec_out[113] dec_out[114] dec_out[115] dec_out[116] dec_out[117] dec_out[118] dec_out[119]
++ dec_out[11] dec_out[120] dec_out[121] dec_out[122] dec_out[123] dec_out[124] dec_out[125]
++ dec_out[126] dec_out[127] dec_out[12] dec_out[13] dec_out[14] dec_out[15] dec_out[16] dec_out[17]
++ dec_out[18] dec_out[19] dec_out[1] dec_out[20] dec_out[21] dec_out[22] dec_out[23] dec_out[24]
++ dec_out[25] dec_out[26] dec_out[27] dec_out[28] dec_out[29] dec_out[2] dec_out[30] dec_out[31]
++ dec_out[32] dec_out[33] dec_out[34] dec_out[35] dec_out[36] dec_out[37] dec_out[38] dec_out[39]
++ dec_out[3] dec_out[40] dec_out[41] dec_out[42] dec_out[43] dec_out[44] dec_out[45] dec_out[46]
++ dec_out[47] dec_out[48] dec_out[49] dec_out[4] dec_out[50] dec_out[51] dec_out[52] dec_out[53]
++ dec_out[54] dec_out[55] dec_out[56] dec_out[57] dec_out[58] dec_out[59] dec_out[5] dec_out[60]
++ dec_out[61] dec_out[62] dec_out[63] dec_out[64] dec_out[65] dec_out[66] dec_out[67] dec_out[68]
++ dec_out[69] dec_out[6] dec_out[70] dec_out[71] dec_out[72] dec_out[73] dec_out[74] dec_out[75]
++ dec_out[76] dec_out[77] dec_out[78] dec_out[79] dec_out[7] dec_out[80] dec_out[81] dec_out[82]
++ dec_out[83] dec_out[84] dec_out[85] dec_out[86] dec_out[87] dec_out[88] dec_out[89] dec_out[8]
++ dec_out[90] dec_out[91] dec_out[92] dec_out[93] dec_out[94] dec_out[95] dec_out[96] dec_out[97]
++ dec_out[98] dec_out[99] dec_out[9] decoder_7to128
+.ends

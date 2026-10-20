@@ -1,0 +1,41 @@
+* VCO on layout-extracted workshop_inverter, inv_dut_120
+.include /home/noritsuna/workshop_inverter/vco/sim_layout/workshop_inverter_layout.cir
+.include /home/noritsuna/pdk/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /home/noritsuna/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+.lib /home/noritsuna/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice diode_typical
+.param VCTRL=1.5
+XTOP D[0] D[1] D[2] D[3] D[4] D[5] D[6] FOUT IN OUT VCO_EN VCTRL VDD_DEC VDD_INV 0 workshop_inverter
+COUT OUT 0 100f
+CFOUT FOUT 0 100f
+VDDD VDD_DEC 0 5.0
+VDDI VDD_INV 0 3.3
+VCT VCTRL 0 {VCTRL}
+VEN VCO_EN 0 PULSE(0 5.0 100n 10n 10n 1 2)
+VIN IN 0 0
+VD0 D[0] 0 0
+VD1 D[1] 0 0
+VD2 D[2] 0 0
+VD3 D[3] 0 5.0
+VD4 D[4] 0 5.0
+VD5 D[5] 0 5.0
+VD6 D[6] 0 5.0
+.options method=gear reltol=1e-3
+.save v(fout) v(xtop.n_I288) i(vddi)
+.control
+foreach vc 1.5 2.0 2.5
+  alterparam VCTRL=$vc
+  reset
+  tran 0.1n 2u 0 0.2n
+  meas tran tr1 when v(fout)=1.65 rise=1 td=0.8u
+  meas tran tr11 when v(fout)=1.65 rise=11 td=0.8u
+  meas tran iavg avg i(vddi) from=0.8u to=2u
+  meas tran amax max v(xtop.n_I288) from=0.8u to=2u
+  meas tran amin min v(xtop.n_I288) from=0.8u to=2u
+  let per = (tr11 - tr1)/10
+  let fmhz = 1e-6/per
+  let ima = -iavg*1e3
+  let aswing = amax - amin
+  echo RESULT ch=120 vctrl=$vc per=$&per fmhz=$&fmhz ima=$&ima aswing=$&aswing
+end
+.endc
+.end

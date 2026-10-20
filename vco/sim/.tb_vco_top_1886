@@ -1,0 +1,33 @@
+** sch_path: /home/noritsuna/vco/tb_vco_top.sch
+**.subckt tb_vco_top
+x1 ?1 VCTRL ?1 VCO_EN ?7 D[6],D[5],D[4],D[3],D[2],D[1],D[0] ?1 IN ?1 OUT ?1 FOUT ?1 VDD_INV ?1 VDD_DEC ?1 0  vco_top
+**** end_element
+COUT ?1 OUT ?1 0  100f m=1
+**** end_element
+CFOUT ?1 FOUT ?1 0  100f m=1
+**** end_element
+VDDD ?1 VDD_DEC ?1 0  {VDEC}
+**** end_element
+VDDI ?1 VDD_INV ?1 0  {VINV}
+**** end_element
+VCT ?1 VCTRL ?1 0  {VCTRL}
+**** end_element
+VEN ?1 VCO_EN ?1 0  PULSE(0 {VDEC} 2u 10n 10n 1 2)
+**** end_element
+VIN ?1 IN ?1 0  PULSE(0 {VINV} 0.5u 10n 10n 0.5u 1u)
+**** end_element
+VD0 ?1 D[0] ?1 0  {VDEC*0}
+**** end_element
+VD1 ?1 D[1] ?1 0  {VDEC*0}
+**** end_element
+VD2 ?1 D[2] ?1 0  {VDEC*0}
+**** end_element
+VD3 ?1 D[3] ?1 0  {VDEC*0}
+**** end_element
+VD4 ?1 D[4] ?1 0  {VDEC*0}
+**** end_element
+VD5 ?1 D[5] ?1 0  {VDEC*0}
+**** end_element
+VD6 ?1 D[6] ?1 0  {VDEC*0}
+**** end_element
+**** begin user architecture code

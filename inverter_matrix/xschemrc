@@ -1,0 +1,4 @@
+# Load GF180MCU PDK settings, then add this directory
+source $env(PDK_ROOT)/$env(PDK)/libs.tech/xschem/xschemrc
+append XSCHEM_LIBRARY_PATH :[file dirname [info script]]
+set XSCHEM_START_WINDOW [file dirname [info script]]/inv_matrix_top.sch

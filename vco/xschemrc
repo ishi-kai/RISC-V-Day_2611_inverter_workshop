@@ -1,0 +1,5 @@
+# Load GF180MCU PDK settings, then add ../inverter_matrix and this directory
+source $env(PDK_ROOT)/$env(PDK)/libs.tech/xschem/xschemrc
+append XSCHEM_LIBRARY_PATH :[file normalize [file dirname [info script]]/../inverter_matrix]
+append XSCHEM_LIBRARY_PATH :[file dirname [info script]]
+set XSCHEM_START_WINDOW [file dirname [info script]]/vco_top.sch

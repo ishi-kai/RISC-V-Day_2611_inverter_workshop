@@ -1,0 +1,28 @@
+** sch_path: /home/noritsuna/inverter_matrix/tgate_5v0_in.sch
+.subckt tgate_5v0_in IN SEL VDD_DEC VSS DUT_IN
+*.PININFO IN:B SEL:I VDD_DEC:B VSS:B DUT_IN:B
+X0_SELB SEL SELB VDD_DEC VSS inv_ctrl_5v0
+X0_TGIN IN DUT_IN SEL SELB VDD_DEC VSS tgate_5v0
+MPD DUT_IN SELB VSS VSS nfet_05v0 L=0.60u W=0.42u nf=1
+DANT VSS SEL diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+.ends
+
+* expanding   symbol:  inv_ctrl_5v0.sym # of pins=4
+** sym_path: /home/noritsuna/inverter_matrix/inv_ctrl_5v0.sym
+** sch_path: /home/noritsuna/inverter_matrix/inv_ctrl_5v0.sch
+.subckt inv_ctrl_5v0 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.50u W=2u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1u nf=1
+.ends
+
+
+* expanding   symbol:  tgate_5v0.sym # of pins=6
+** sym_path: /home/noritsuna/inverter_matrix/tgate_5v0.sym
+** sch_path: /home/noritsuna/inverter_matrix/tgate_5v0.sch
+.subckt tgate_5v0 A B EN ENB VDD VSS
+*.PININFO A:B B:B EN:I ENB:I VDD:B VSS:B
+MN A EN B VSS nfet_05v0 L=0.60u W=2u nf=1
+MP B ENB A VDD pfet_05v0 L=0.50u W=6u nf=1
+.ends
+

@@ -1,0 +1,24 @@
+v {xschem version=3.4.5 file_version=1.2}
+G {}
+K {type=primitive
+format="@name @pinlist decoder_7to128_xs"
+template="name=x1"
+}
+V {}
+S {}
+E {}
+P 4 5 -100 -30 100 -30 100 30 -100 30 -100 -30 {}
+L 4 -100 0 -120 0 {}
+T {dec_in[6:0]} -95 -6 0 0 0.2 0.2 {}
+L 4 100 0 120 0 {}
+T {dec_out[127:0]} 95 -6 0 1 0.2 0.2 {}
+L 4 0 -30 0 -50 {}
+T {VDD} 3 -26 0 0 0.2 0.2 {}
+L 4 0 30 0 50 {}
+T {VSS} 3 14 0 0 0.2 0.2 {}
+B 5 -2.5 -52.5 2.5 -47.5 {name=VDD dir=inout}
+B 5 -2.5 47.5 2.5 52.5 {name=VSS dir=inout}
+B 5 -122.5 -2.5 -117.5 2.5 {name=dec_in[6:0] dir=in}
+B 5 117.5 -2.5 122.5 2.5 {name=dec_out[127:0] dir=out}
+T {decoder_7to128} -100 -60 0 0 0.25 0.25 {}
+T {@name} -100 35 0 0 0.2 0.2 {}

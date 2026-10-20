@@ -1,0 +1,166 @@
+* Inverter mode test on layout-extracted workshop_inverter, inv_dut_045 (VINV=5.0)
+.include /home/noritsuna/workshop_inverter/inverter_matrix/sim_layout/workshop_inverter_layout.cir
+.include /home/noritsuna/pdk/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /home/noritsuna/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+.lib /home/noritsuna/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice diode_typical
+.options method=gear reltol=1e-4 abstol=1e-13 vntol=1e-7 rshunt=1e12
+XTOP D[0] D[1] D[2] D[3] D[4] D[5] D[6] FOUT IN OUT VCO_EN VCTRL VDD_DEC VDD_INV 0 workshop_inverter
+VDDD VDD_DEC 0 5.0
+VDDI VDD_INV 0 5.0
+VCT VCTRL 0 0
+VEN VCO_EN 0 0
+VIN IN 0 PWL(0n 0 200n 0 300n 1.92294 1900n 2.72294 2000n 5 2200n 5 2300n 2.72294 3900n 1.92294 4000n 0 4200n 0)
+VD0 D[0] 0 5.0
+VD1 D[1] 0 0
+VD2 D[2] 0 5.0
+VD3 D[3] 0 5.0
+VD4 D[4] 0 0
+VD5 D[5] 0 5.0
+VD6 D[6] 0 0
+.control
+tran 1n 4200n 0 5n
+let d = v(out)-v(in)
+meas tran voh find v(out) at=190n
+meas tran vol find v(out) at=2190n
+meas tran q_lo find v(xtop.n_I181) at=190n
+meas tran q_hi find v(xtop.n_I181) at=2190n
+meas tran ain_lo find v(xtop.n_I309) at=190n
+meas tran ain_hi find v(xtop.n_I309) at=2190n
+meas tran i_lo find i(vddi) at=190n
+meas tran i_hi find i(vddi) at=2190n
+meas tran t_vmr when d=0 fall=1 td=300n
+meas tran t_vmf when d=0 rise=1 td=2300n
+meas tran vm_r find v(in) at=t_vmr
+meas tran vm_f find v(in) at=t_vmf
+echo RESULT ch=45 vinv=5.0 voh=$&voh vol=$&vol q_lo=$&q_lo q_hi=$&q_hi ain_lo=$&ain_lo ain_hi=$&ain_hi i_lo=$&i_lo i_hi=$&i_hi vm_r=$&vm_r vm_f=$&vm_f
+meas tran a000 find v(xtop.n_I286) at=2190n
+meas tran a001 find v(xtop.n_I378) at=2190n
+meas tran a002 find v(xtop.n_I287) at=2190n
+meas tran a003 find v(xtop.n_I272) at=2190n
+meas tran a004 find v(xtop.n_I344) at=2190n
+meas tran a005 find v(xtop.n_I384) at=2190n
+meas tran a006 find v(xtop.n_I379) at=2190n
+meas tran a007 find v(xtop.n_I357) at=2190n
+meas tran a008 find v(xtop.n_I318) at=2190n
+meas tran a009 find v(xtop.n_I262) at=2190n
+meas tran a010 find v(xtop.n_I264) at=2190n
+meas tran a011 find v(xtop.n_I265) at=2190n
+meas tran a012 find v(xtop.n_I290) at=2190n
+meas tran a013 find v(xtop.n_I304) at=2190n
+meas tran a014 find v(xtop.n_I307) at=2190n
+meas tran a015 find v(xtop.n_I303) at=2190n
+meas tran a016 find v(xtop.n_I331) at=2190n
+meas tran a017 find v(xtop.n_I333) at=2190n
+meas tran a018 find v(xtop.n_I332) at=2190n
+meas tran a019 find v(xtop.n_I335) at=2190n
+meas tran a020 find v(xtop.n_I330) at=2190n
+meas tran a021 find v(xtop.n_I329) at=2190n
+meas tran a022 find v(xtop.n_I328) at=2190n
+meas tran a023 find v(xtop.n_I306) at=2190n
+meas tran a024 find v(xtop.n_I343) at=2190n
+meas tran a025 find v(xtop.n_I342) at=2190n
+meas tran a026 find v(xtop.n_I341) at=2190n
+meas tran a027 find v(xtop.n_I340) at=2190n
+meas tran a028 find v(xtop.n_I322) at=2190n
+meas tran a029 find v(xtop.n_I337) at=2190n
+meas tran a030 find v(xtop.n_I336) at=2190n
+meas tran a031 find v(xtop.n_I339) at=2190n
+meas tran a032 find v(xtop.n_I361) at=2190n
+meas tran a033 find v(xtop.n_I289) at=2190n
+meas tran a034 find v(xtop.n_I284) at=2190n
+meas tran a035 find v(xtop.n_I375) at=2190n
+meas tran a036 find v(xtop.n_I381) at=2190n
+meas tran a037 find v(xtop.n_I356) at=2190n
+meas tran a038 find v(xtop.n_I358) at=2190n
+meas tran a039 find v(xtop.n_I353) at=2190n
+meas tran a040 find v(xtop.n_I314) at=2190n
+meas tran a041 find v(xtop.n_I311) at=2190n
+meas tran a042 find v(xtop.n_I313) at=2190n
+meas tran a043 find v(xtop.n_I316) at=2190n
+meas tran a044 find v(xtop.n_I298) at=2190n
+meas tran a045 find v(xtop.n_I309) at=2190n
+meas tran a046 find v(xtop.n_I310) at=2190n
+meas tran a047 find v(xtop.n_I292) at=2190n
+meas tran a048 find v(xtop.n_I338) at=2190n
+meas tran a049 find v(xtop.n_I366) at=2190n
+meas tran a050 find v(xtop.n_I285) at=2190n
+meas tran a051 find v(xtop.n_I352) at=2190n
+meas tran a052 find v(xtop.n_I359) at=2190n
+meas tran a053 find v(xtop.n_I377) at=2190n
+meas tran a054 find v(xtop.n_I355) at=2190n
+meas tran a055 find v(xtop.n_I351) at=2190n
+meas tran a056 find v(xtop.n_I315) at=2190n
+meas tran a057 find v(xtop.n_I317) at=2190n
+meas tran a058 find v(xtop.n_I319) at=2190n
+meas tran a059 find v(xtop.n_I321) at=2190n
+meas tran a060 find v(xtop.n_I305) at=2190n
+meas tran a061 find v(xtop.n_I299) at=2190n
+meas tran a062 find v(xtop.n_I308) at=2190n
+meas tran a063 find v(xtop.n_I291) at=2190n
+meas tran a064 find v(xtop.n_I323) at=2190n
+meas tran a065 find v(xtop.n_I325) at=2190n
+meas tran a066 find v(xtop.n_I324) at=2190n
+meas tran a067 find v(xtop.n_I346) at=2190n
+meas tran a068 find v(xtop.n_I334) at=2190n
+meas tran a069 find v(xtop.n_I327) at=2190n
+meas tran a070 find v(xtop.n_I326) at=2190n
+meas tran a071 find v(xtop.n_I350) at=2190n
+meas tran a072 find v(xtop.n_I294) at=2190n
+meas tran a073 find v(xtop.n_I293) at=2190n
+meas tran a074 find v(xtop.n_I295) at=2190n
+meas tran a075 find v(xtop.n_I296) at=2190n
+meas tran a076 find v(xtop.n_I297) at=2190n
+meas tran a077 find v(xtop.n_I302) at=2190n
+meas tran a078 find v(xtop.n_I301) at=2190n
+meas tran a079 find v(xtop.n_I300) at=2190n
+meas tran a080 find v(xtop.n_I276) at=2190n
+meas tran a081 find v(xtop.n_I267) at=2190n
+meas tran a082 find v(xtop.n_I277) at=2190n
+meas tran a083 find v(xtop.n_I345) at=2190n
+meas tran a084 find v(xtop.n_I260) at=2190n
+meas tran a085 find v(xtop.n_I275) at=2190n
+meas tran a086 find v(xtop.n_I271) at=2190n
+meas tran a087 find v(xtop.n_I349) at=2190n
+meas tran a088 find v(xtop.n_I269) at=2190n
+meas tran a089 find v(xtop.n_I268) at=2190n
+meas tran a090 find v(xtop.n_I258) at=2190n
+meas tran a091 find v(xtop.n_I266) at=2190n
+meas tran a092 find v(xtop.n_I370) at=2190n
+meas tran a093 find v(xtop.n_I369) at=2190n
+meas tran a094 find v(xtop.n_I372) at=2190n
+meas tran a095 find v(xtop.n_I371) at=2190n
+meas tran a096 find v(xtop.n_I283) at=2190n
+meas tran a097 find v(xtop.n_I282) at=2190n
+meas tran a098 find v(xtop.n_I281) at=2190n
+meas tran a099 find v(xtop.n_I382) at=2190n
+meas tran a100 find v(xtop.n_I274) at=2190n
+meas tran a101 find v(xtop.n_I273) at=2190n
+meas tran a102 find v(xtop.n_I270) at=2190n
+meas tran a103 find v(xtop.n_I348) at=2190n
+meas tran a104 find v(xtop.n_I360) at=2190n
+meas tran a105 find v(xtop.n_I364) at=2190n
+meas tran a106 find v(xtop.n_I374) at=2190n
+meas tran a107 find v(xtop.n_I373) at=2190n
+meas tran a108 find v(xtop.n_I368) at=2190n
+meas tran a109 find v(xtop.n_I367) at=2190n
+meas tran a110 find v(xtop.n_I354) at=2190n
+meas tran a111 find v(xtop.n_I363) at=2190n
+meas tran a112 find v(xtop.n_I385) at=2190n
+meas tran a113 find v(xtop.n_I280) at=2190n
+meas tran a114 find v(xtop.n_I278) at=2190n
+meas tran a115 find v(xtop.n_I380) at=2190n
+meas tran a116 find v(xtop.n_I320) at=2190n
+meas tran a117 find v(xtop.n_I312) at=2190n
+meas tran a118 find v(xtop.n_I261) at=2190n
+meas tran a119 find v(xtop.n_I347) at=2190n
+meas tran a120 find v(xtop.n_I288) at=2190n
+meas tran a121 find v(xtop.n_I263) at=2190n
+meas tran a122 find v(xtop.n_I279) at=2190n
+meas tran a123 find v(xtop.n_I259) at=2190n
+meas tran a124 find v(xtop.n_I383) at=2190n
+meas tran a125 find v(xtop.n_I365) at=2190n
+meas tran a126 find v(xtop.n_I376) at=2190n
+meas tran a127 find v(xtop.n_I362) at=2190n
+echo ALIST ch=45 $&a000 $&a001 $&a002 $&a003 $&a004 $&a005 $&a006 $&a007 $&a008 $&a009 $&a010 $&a011 $&a012 $&a013 $&a014 $&a015 $&a016 $&a017 $&a018 $&a019 $&a020 $&a021 $&a022 $&a023 $&a024 $&a025 $&a026 $&a027 $&a028 $&a029 $&a030 $&a031 $&a032 $&a033 $&a034 $&a035 $&a036 $&a037 $&a038 $&a039 $&a040 $&a041 $&a042 $&a043 $&a044 $&a045 $&a046 $&a047 $&a048 $&a049 $&a050 $&a051 $&a052 $&a053 $&a054 $&a055 $&a056 $&a057 $&a058 $&a059 $&a060 $&a061 $&a062 $&a063 $&a064 $&a065 $&a066 $&a067 $&a068 $&a069 $&a070 $&a071 $&a072 $&a073 $&a074 $&a075 $&a076 $&a077 $&a078 $&a079 $&a080 $&a081 $&a082 $&a083 $&a084 $&a085 $&a086 $&a087 $&a088 $&a089 $&a090 $&a091 $&a092 $&a093 $&a094 $&a095 $&a096 $&a097 $&a098 $&a099 $&a100 $&a101 $&a102 $&a103 $&a104 $&a105 $&a106 $&a107 $&a108 $&a109 $&a110 $&a111 $&a112 $&a113 $&a114 $&a115 $&a116 $&a117 $&a118 $&a119 $&a120 $&a121 $&a122 $&a123 $&a124 $&a125 $&a126 $&a127
+.endc
+.end

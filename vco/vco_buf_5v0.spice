@@ -1,0 +1,26 @@
+** sch_path: /home/noritsuna/vco/vco_buf_5v0.sch
+.subckt vco_buf_5v0 IN FOUT VDD_INV VSS
+*.PININFO IN:B FOUT:O VDD_INV:B VSS:B
+X1 IN FB VDD_INV VSS vco_buf1_5v0
+X2 FB FOUT VDD_INV VSS vco_buf2_5v0
+.ends
+
+* expanding   symbol:  vco_buf1_5v0.sym # of pins=4
+** sym_path: /home/noritsuna/vco/vco_buf1_5v0.sym
+** sch_path: /home/noritsuna/vco/vco_buf1_5v0.sch
+.subckt vco_buf1_5v0 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.50u W=2u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1u nf=1
+.ends
+
+
+* expanding   symbol:  vco_buf2_5v0.sym # of pins=4
+** sym_path: /home/noritsuna/vco/vco_buf2_5v0.sym
+** sch_path: /home/noritsuna/vco/vco_buf2_5v0.sch
+.subckt vco_buf2_5v0 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.50u W=8u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=4u nf=1
+.ends
+

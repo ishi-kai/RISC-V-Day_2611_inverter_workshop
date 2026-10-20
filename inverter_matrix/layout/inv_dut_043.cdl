@@ -1,0 +1,5 @@
+* inv_dut_043: pfet_05v0 W=10.80u L=1.20u / nfet_05v0 W=5.40u L=1.20u
+.SUBCKT inv_dut_043 A Q VDD VSS
+MMP Q A VDD VDD pfet_05v0 W=10.80u L=1.20u
+MMN Q A VSS VSS nfet_05v0 W=5.40u L=1.20u
+.ENDS

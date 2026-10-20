@@ -1,0 +1,3 @@
+[submodule "submodules/librelane"]
+	path = submodules/librelane
+	url = git@github.com:librelane/librelane.git

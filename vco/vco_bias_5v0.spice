@@ -1,0 +1,8 @@
+** sch_path: /home/noritsuna/vco/vco_bias_5v0.sch
+.subckt vco_bias_5v0 VCTRL VBP VBN VDD VSS
+*.PININFO VCTRL:I VBP:O VBN:O VDD:B VSS:B
+MPB VBP VBP VDD VDD pfet_05v0 L=1u W=16u nf=1
+MNI VBP VCTRL VSS VSS nfet_05v0 L=2u W=2u nf=1
+MPM VBN VBP VDD VDD pfet_05v0 L=1u W=16u nf=1
+MNM VBN VBN VSS VSS nfet_05v0 L=1u W=4u nf=1
+.ends

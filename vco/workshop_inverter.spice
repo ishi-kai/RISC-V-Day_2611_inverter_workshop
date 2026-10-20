@@ -1,0 +1,1687 @@
+** sch_path: /home/noritsuna/workshop_inverter/vco/workshop_inverter.sch
+.subckt workshop_inverter VCTRL VCO_EN D[6] D[5] D[4] D[3] D[2] D[1] D[0] IN OUT FOUT VDD_INV VDD_DEC VSS
+*.PININFO VCTRL:I VCO_EN:I D[6:0]:I IN:B OUT:B FOUT:O VDD_INV:B VDD_DEC:B VSS:B
+x1 VCTRL VCO_EN D[6] D[5] D[4] D[3] D[2] D[1] D[0] IN OUT FOUT VDD_INV VDD_DEC VSS vco_top
+.ends
+
+* expanding   symbol:  vco_top.sym # of pins=9
+** sym_path: /home/noritsuna/workshop_inverter/vco/vco_top.sym
+** sch_path: /home/noritsuna/workshop_inverter/vco/vco_top.sch
+.subckt vco_top VCTRL VCO_EN D[6] D[5] D[4] D[3] D[2] D[1] D[0] IN OUT FOUT VDD_INV VDD_DEC VSS
+*.PININFO VCTRL:I VCO_EN:I D[6:0]:I IN:B OUT:B FOUT:O VDD_INV:B VDD_DEC:B VSS:B
+X2 VCTRL VBP VBN VDD_INV VSS vco_bias_5v0
+X3 R0 R1 VBP VDD_INV VBN VSS cs_inv_5v0
+X4 R1 R2 VBP VDD_INV VBN VSS cs_inv_5v0
+X5 R2 R3 VBP VDD_INV VBN VSS cs_inv_5v0
+X6 R3 R4 VBP VDD_INV VBN VSS cs_inv_5v0
+X7 R4 R5 VBP VDD_INV VBN VSS cs_inv_5v0
+X8 R5 R6 VBP VDD_INV VBN VSS cs_inv_x4_5v0
+MPD R0 VCO_ENB1 VSS VSS nfet_05v0 L=0.60u W=0.42u nf=1
+X9 R3 FB VDD_INV VSS vco_buf1_5v0
+X10 FB FOUT VDD_INV VSS vco_buf2_5v0
+X15 MIN D[6] D[5] D[4] D[3] D[2] D[1] D[0] MOUT VDD_INV VDD_DEC VSS inv_matrix_top
+DANT2 VSS VCTRL diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+X16 R6 MIN VCO_EN VCO_ENB3 VDD_DEC VSS tgate_5v0
+X17 IN MIN VCO_ENB4 VCO_EN VDD_DEC VSS tgate_5v0
+X18 MOUT R0 VCO_EN VCO_ENB1 VDD_DEC VSS tgate_5v0
+X19 MOUT OUT VCO_ENB2 VCO_EN VDD_DEC VSS tgate_5v0
+X20 VCO_EN VCO_ENB3 VDD_DEC VSS inv_ctrl_5v0
+X21 VCO_EN VCO_ENB4 VDD_DEC VSS inv_ctrl_5v0
+X22 VCO_EN VCO_ENB1 VDD_DEC VSS inv_ctrl_5v0
+X23 VCO_EN VCO_ENB2 VDD_DEC VSS inv_ctrl_5v0
+DANT3 VSS VCO_EN diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+DANT4 VSS VCO_EN diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+DANT5 VSS VCO_EN diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+DANT6 VSS VCO_EN diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+.ends
+
+
+* expanding   symbol:  vco_bias_5v0.sym # of pins=5
+** sym_path: /home/noritsuna/workshop_inverter/vco/vco_bias_5v0.sym
+** sch_path: /home/noritsuna/workshop_inverter/vco/vco_bias_5v0.sch
+.subckt vco_bias_5v0 VCTRL VBP VBN VDD VSS
+*.PININFO VCTRL:I VBP:O VBN:O VDD:B VSS:B
+MPB VBP VBP VDD VDD pfet_05v0 L=1u W=16u nf=1
+MNI VBP VCTRL VSS VSS nfet_05v0 L=2u W=2u nf=1
+MPM VBN VBP VDD VDD pfet_05v0 L=1u W=16u nf=1
+MNM VBN VBN VSS VSS nfet_05v0 L=1u W=4u nf=1
+.ends
+
+
+* expanding   symbol:  cs_inv_5v0.sym # of pins=6
+** sym_path: /home/noritsuna/workshop_inverter/vco/cs_inv_5v0.sym
+** sch_path: /home/noritsuna/workshop_inverter/vco/cs_inv_5v0.sch
+.subckt cs_inv_5v0 A Y VBP VDD VBN VSS
+*.PININFO A:I Y:O VBP:I VDD:B VBN:I VSS:B
+MPC NP VBP VDD VDD pfet_05v0 L=1u W=16u nf=1
+MP Y A NP VDD pfet_05v0 L=0.50u W=4u nf=1
+MN Y A NN VSS nfet_05v0 L=0.60u W=2u nf=1
+MNC NN VBN VSS VSS nfet_05v0 L=1u W=4u nf=1
+.ends
+
+
+* expanding   symbol:  cs_inv_x4_5v0.sym # of pins=6
+** sym_path: /home/noritsuna/workshop_inverter/vco/cs_inv_x4_5v0.sym
+** sch_path: /home/noritsuna/workshop_inverter/vco/cs_inv_x4_5v0.sch
+.subckt cs_inv_x4_5v0 A Y VBP VDD VBN VSS
+*.PININFO A:I Y:O VBP:I VDD:B VBN:I VSS:B
+MPC NP VBP VDD VDD pfet_05v0 L=1u W=64u nf=1
+MP Y A NP VDD pfet_05v0 L=0.50u W=12u nf=1
+MN Y A NN VSS nfet_05v0 L=0.60u W=6u nf=1
+MNC NN VBN VSS VSS nfet_05v0 L=1u W=16u nf=1
+.ends
+
+
+* expanding   symbol:  vco_buf1_5v0.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/vco/vco_buf1_5v0.sym
+** sch_path: /home/noritsuna/workshop_inverter/vco/vco_buf1_5v0.sch
+.subckt vco_buf1_5v0 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.50u W=2u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1u nf=1
+.ends
+
+
+* expanding   symbol:  vco_buf2_5v0.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/vco/vco_buf2_5v0.sym
+** sch_path: /home/noritsuna/workshop_inverter/vco/vco_buf2_5v0.sch
+.subckt vco_buf2_5v0 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.50u W=8u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=4u nf=1
+.ends
+
+
+* expanding   symbol:  inv_matrix_top.sym # of pins=6
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/inv_matrix_top.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/inv_matrix_top.sch
+.subckt inv_matrix_top IN D[6] D[5] D[4] D[3] D[2] D[1] D[0] OUT VDD_INV VDD_DEC VSS
+*.PININFO IN:B D[6:0]:I OUT:B VDD_INV:B VDD_DEC:B VSS:B
+X0_DEC VDD_DEC VSS D[6] D[5] D[4] D[3] D[2] D[1] D[0] SEL[127] SEL[126] SEL[125] SEL[124] SEL[123] SEL[122] SEL[121] SEL[120]  SEL[119] SEL[118] SEL[117] SEL[116] SEL[115] SEL[114] SEL[113] SEL[112] SEL[111] SEL[110] SEL[109] SEL[108] SEL[107] SEL[106] SEL[105]  SEL[104] SEL[103] SEL[102] SEL[101] SEL[100] SEL[99] SEL[98] SEL[97] SEL[96] SEL[95] SEL[94] SEL[93] SEL[92] SEL[91] SEL[90] SEL[89]  SEL[88] SEL[87] SEL[86] SEL[85] SEL[84] SEL[83] SEL[82] SEL[81] SEL[80] SEL[79] SEL[78] SEL[77] SEL[76] SEL[75] SEL[74] SEL[73] SEL[72]  SEL[71] SEL[70] SEL[69] SEL[68] SEL[67] SEL[66] SEL[65] SEL[64] SEL[63] SEL[62] SEL[61] SEL[60] SEL[59] SEL[58] SEL[57] SEL[56] SEL[55]  SEL[54] SEL[53] SEL[52] SEL[51] SEL[50] SEL[49] SEL[48] SEL[47] SEL[46] SEL[45] SEL[44] SEL[43] SEL[42] SEL[41] SEL[40] SEL[39] SEL[38]  SEL[37] SEL[36] SEL[35] SEL[34] SEL[33] SEL[32] SEL[31] SEL[30] SEL[29] SEL[28] SEL[27] SEL[26] SEL[25] SEL[24] SEL[23] SEL[22] SEL[21]  SEL[20] SEL[19] SEL[18] SEL[17] SEL[16] SEL[15] SEL[14] SEL[13] SEL[12] SEL[11] SEL[10] SEL[9] SEL[8] SEL[7] SEL[6] SEL[5] SEL[4] SEL[3]  SEL[2] SEL[1] SEL[0] decoder_7to128_xs
+X0_ARR IN SEL[127] SEL[126] SEL[125] SEL[124] SEL[123] SEL[122] SEL[121] SEL[120] SEL[119] SEL[118] SEL[117] SEL[116] SEL[115]  SEL[114] SEL[113] SEL[112] SEL[111] SEL[110] SEL[109] SEL[108] SEL[107] SEL[106] SEL[105] SEL[104] SEL[103] SEL[102] SEL[101] SEL[100]  SEL[99] SEL[98] SEL[97] SEL[96] SEL[95] SEL[94] SEL[93] SEL[92] SEL[91] SEL[90] SEL[89] SEL[88] SEL[87] SEL[86] SEL[85] SEL[84] SEL[83]  SEL[82] SEL[81] SEL[80] SEL[79] SEL[78] SEL[77] SEL[76] SEL[75] SEL[74] SEL[73] SEL[72] SEL[71] SEL[70] SEL[69] SEL[68] SEL[67] SEL[66]  SEL[65] SEL[64] SEL[63] SEL[62] SEL[61] SEL[60] SEL[59] SEL[58] SEL[57] SEL[56] SEL[55] SEL[54] SEL[53] SEL[52] SEL[51] SEL[50] SEL[49]  SEL[48] SEL[47] SEL[46] SEL[45] SEL[44] SEL[43] SEL[42] SEL[41] SEL[40] SEL[39] SEL[38] SEL[37] SEL[36] SEL[35] SEL[34] SEL[33] SEL[32]  SEL[31] SEL[30] SEL[29] SEL[28] SEL[27] SEL[26] SEL[25] SEL[24] SEL[23] SEL[22] SEL[21] SEL[20] SEL[19] SEL[18] SEL[17] SEL[16] SEL[15]  SEL[14] SEL[13] SEL[12] SEL[11] SEL[10] SEL[9] SEL[8] SEL[7] SEL[6] SEL[5] SEL[4] SEL[3] SEL[2] SEL[1] SEL[0] OUT VDD_INV VDD_DEC VSS  inv_array_128
+DANT0 VSS D[0] diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+DANT1 VSS D[1] diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+DANT2 VSS D[2] diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+DANT3 VSS D[3] diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+DANT4 VSS D[4] diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+DANT5 VSS D[5] diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+DANT6 VSS D[6] diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+.ends
+
+
+* expanding   symbol:  tgate_5v0.sym # of pins=6
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/tgate_5v0.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/tgate_5v0.sch
+.subckt tgate_5v0 A B EN ENB VDD VSS
+*.PININFO A:B B:B EN:I ENB:I VDD:B VSS:B
+MN A EN B VSS nfet_05v0 L=0.60u W=2u nf=1
+MP B ENB A VDD pfet_05v0 L=0.50u W=6u nf=1
+.ends
+
+
+* expanding   symbol:  inv_ctrl_5v0.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/inv_ctrl_5v0.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/inv_ctrl_5v0.sch
+.subckt inv_ctrl_5v0 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.50u W=2u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1u nf=1
+.ends
+
+
+* expanding   symbol:  inv_array_128.sym # of pins=6
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/inv_array_128.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/inv_array_128.sch
+.subckt inv_array_128 IN SEL[127] SEL[126] SEL[125] SEL[124] SEL[123] SEL[122] SEL[121] SEL[120] SEL[119] SEL[118] SEL[117]  SEL[116] SEL[115] SEL[114] SEL[113] SEL[112] SEL[111] SEL[110] SEL[109] SEL[108] SEL[107] SEL[106] SEL[105] SEL[104] SEL[103] SEL[102]  SEL[101] SEL[100] SEL[99] SEL[98] SEL[97] SEL[96] SEL[95] SEL[94] SEL[93] SEL[92] SEL[91] SEL[90] SEL[89] SEL[88] SEL[87] SEL[86] SEL[85]  SEL[84] SEL[83] SEL[82] SEL[81] SEL[80] SEL[79] SEL[78] SEL[77] SEL[76] SEL[75] SEL[74] SEL[73] SEL[72] SEL[71] SEL[70] SEL[69] SEL[68]  SEL[67] SEL[66] SEL[65] SEL[64] SEL[63] SEL[62] SEL[61] SEL[60] SEL[59] SEL[58] SEL[57] SEL[56] SEL[55] SEL[54] SEL[53] SEL[52] SEL[51]  SEL[50] SEL[49] SEL[48] SEL[47] SEL[46] SEL[45] SEL[44] SEL[43] SEL[42] SEL[41] SEL[40] SEL[39] SEL[38] SEL[37] SEL[36] SEL[35] SEL[34]  SEL[33] SEL[32] SEL[31] SEL[30] SEL[29] SEL[28] SEL[27] SEL[26] SEL[25] SEL[24] SEL[23] SEL[22] SEL[21] SEL[20] SEL[19] SEL[18] SEL[17]  SEL[16] SEL[15] SEL[14] SEL[13] SEL[12] SEL[11] SEL[10] SEL[9] SEL[8] SEL[7] SEL[6] SEL[5] SEL[4] SEL[3] SEL[2] SEL[1] SEL[0] OUT VDD_INV  VDD_DEC VSS
+*.PININFO IN:B SEL[127:0]:I OUT:B VDD_INV:B VDD_DEC:B VSS:B
+X0_MUX0 IN SEL[0] OUT DUT_IN[0] DUT_OUT[0] VDD_DEC VSS mux_ch_5v0
+X0_DUT0 DUT_IN[0] DUT_OUT[0] VDD_INV VSS inv_dut_000
+X0_MUX1 IN SEL[1] OUT DUT_IN[1] DUT_OUT[1] VDD_DEC VSS mux_ch_5v0
+X0_DUT1 DUT_IN[1] DUT_OUT[1] VDD_INV VSS inv_dut_001
+X0_MUX2 IN SEL[2] OUT DUT_IN[2] DUT_OUT[2] VDD_DEC VSS mux_ch_5v0
+X0_DUT2 DUT_IN[2] DUT_OUT[2] VDD_INV VSS inv_dut_002
+X0_MUX3 IN SEL[3] OUT DUT_IN[3] DUT_OUT[3] VDD_DEC VSS mux_ch_5v0
+X0_DUT3 DUT_IN[3] DUT_OUT[3] VDD_INV VSS inv_dut_003
+X0_MUX4 IN SEL[4] OUT DUT_IN[4] DUT_OUT[4] VDD_DEC VSS mux_ch_5v0
+X0_DUT4 DUT_IN[4] DUT_OUT[4] VDD_INV VSS inv_dut_004
+X0_MUX5 IN SEL[5] OUT DUT_IN[5] DUT_OUT[5] VDD_DEC VSS mux_ch_5v0
+X0_DUT5 DUT_IN[5] DUT_OUT[5] VDD_INV VSS inv_dut_005
+X0_MUX6 IN SEL[6] OUT DUT_IN[6] DUT_OUT[6] VDD_DEC VSS mux_ch_5v0
+X0_DUT6 DUT_IN[6] DUT_OUT[6] VDD_INV VSS inv_dut_006
+X0_MUX7 IN SEL[7] OUT DUT_IN[7] DUT_OUT[7] VDD_DEC VSS mux_ch_5v0
+X0_DUT7 DUT_IN[7] DUT_OUT[7] VDD_INV VSS inv_dut_007
+X0_MUX8 IN SEL[8] OUT DUT_IN[8] DUT_OUT[8] VDD_DEC VSS mux_ch_5v0
+X0_DUT8 DUT_IN[8] DUT_OUT[8] VDD_INV VSS inv_dut_008
+X0_MUX9 IN SEL[9] OUT DUT_IN[9] DUT_OUT[9] VDD_DEC VSS mux_ch_5v0
+X0_DUT9 DUT_IN[9] DUT_OUT[9] VDD_INV VSS inv_dut_009
+X0_MUX10 IN SEL[10] OUT DUT_IN[10] DUT_OUT[10] VDD_DEC VSS mux_ch_5v0
+X0_DUT10 DUT_IN[10] DUT_OUT[10] VDD_INV VSS inv_dut_010
+X0_MUX11 IN SEL[11] OUT DUT_IN[11] DUT_OUT[11] VDD_DEC VSS mux_ch_5v0
+X0_DUT11 DUT_IN[11] DUT_OUT[11] VDD_INV VSS inv_dut_011
+X0_MUX12 IN SEL[12] OUT DUT_IN[12] DUT_OUT[12] VDD_DEC VSS mux_ch_5v0
+X0_DUT12 DUT_IN[12] DUT_OUT[12] VDD_INV VSS inv_dut_012
+X0_MUX13 IN SEL[13] OUT DUT_IN[13] DUT_OUT[13] VDD_DEC VSS mux_ch_5v0
+X0_DUT13 DUT_IN[13] DUT_OUT[13] VDD_INV VSS inv_dut_013
+X0_MUX14 IN SEL[14] OUT DUT_IN[14] DUT_OUT[14] VDD_DEC VSS mux_ch_5v0
+X0_DUT14 DUT_IN[14] DUT_OUT[14] VDD_INV VSS inv_dut_014
+X0_MUX15 IN SEL[15] OUT DUT_IN[15] DUT_OUT[15] VDD_DEC VSS mux_ch_5v0
+X0_DUT15 DUT_IN[15] DUT_OUT[15] VDD_INV VSS inv_dut_015
+X0_MUX16 IN SEL[16] OUT DUT_IN[16] DUT_OUT[16] VDD_DEC VSS mux_ch_5v0
+X0_DUT16 DUT_IN[16] DUT_OUT[16] VDD_INV VSS inv_dut_016
+X0_MUX17 IN SEL[17] OUT DUT_IN[17] DUT_OUT[17] VDD_DEC VSS mux_ch_5v0
+X0_DUT17 DUT_IN[17] DUT_OUT[17] VDD_INV VSS inv_dut_017
+X0_MUX18 IN SEL[18] OUT DUT_IN[18] DUT_OUT[18] VDD_DEC VSS mux_ch_5v0
+X0_DUT18 DUT_IN[18] DUT_OUT[18] VDD_INV VSS inv_dut_018
+X0_MUX19 IN SEL[19] OUT DUT_IN[19] DUT_OUT[19] VDD_DEC VSS mux_ch_5v0
+X0_DUT19 DUT_IN[19] DUT_OUT[19] VDD_INV VSS inv_dut_019
+X0_MUX20 IN SEL[20] OUT DUT_IN[20] DUT_OUT[20] VDD_DEC VSS mux_ch_5v0
+X0_DUT20 DUT_IN[20] DUT_OUT[20] VDD_INV VSS inv_dut_020
+X0_MUX21 IN SEL[21] OUT DUT_IN[21] DUT_OUT[21] VDD_DEC VSS mux_ch_5v0
+X0_DUT21 DUT_IN[21] DUT_OUT[21] VDD_INV VSS inv_dut_021
+X0_MUX22 IN SEL[22] OUT DUT_IN[22] DUT_OUT[22] VDD_DEC VSS mux_ch_5v0
+X0_DUT22 DUT_IN[22] DUT_OUT[22] VDD_INV VSS inv_dut_022
+X0_MUX23 IN SEL[23] OUT DUT_IN[23] DUT_OUT[23] VDD_DEC VSS mux_ch_5v0
+X0_DUT23 DUT_IN[23] DUT_OUT[23] VDD_INV VSS inv_dut_023
+X0_MUX24 IN SEL[24] OUT DUT_IN[24] DUT_OUT[24] VDD_DEC VSS mux_ch_5v0
+X0_DUT24 DUT_IN[24] DUT_OUT[24] VDD_INV VSS inv_dut_024
+X0_MUX25 IN SEL[25] OUT DUT_IN[25] DUT_OUT[25] VDD_DEC VSS mux_ch_5v0
+X0_DUT25 DUT_IN[25] DUT_OUT[25] VDD_INV VSS inv_dut_025
+X0_MUX26 IN SEL[26] OUT DUT_IN[26] DUT_OUT[26] VDD_DEC VSS mux_ch_5v0
+X0_DUT26 DUT_IN[26] DUT_OUT[26] VDD_INV VSS inv_dut_026
+X0_MUX27 IN SEL[27] OUT DUT_IN[27] DUT_OUT[27] VDD_DEC VSS mux_ch_5v0
+X0_DUT27 DUT_IN[27] DUT_OUT[27] VDD_INV VSS inv_dut_027
+X0_MUX28 IN SEL[28] OUT DUT_IN[28] DUT_OUT[28] VDD_DEC VSS mux_ch_5v0
+X0_DUT28 DUT_IN[28] DUT_OUT[28] VDD_INV VSS inv_dut_028
+X0_MUX29 IN SEL[29] OUT DUT_IN[29] DUT_OUT[29] VDD_DEC VSS mux_ch_5v0
+X0_DUT29 DUT_IN[29] DUT_OUT[29] VDD_INV VSS inv_dut_029
+X0_MUX30 IN SEL[30] OUT DUT_IN[30] DUT_OUT[30] VDD_DEC VSS mux_ch_5v0
+X0_DUT30 DUT_IN[30] DUT_OUT[30] VDD_INV VSS inv_dut_030
+X0_MUX31 IN SEL[31] OUT DUT_IN[31] DUT_OUT[31] VDD_DEC VSS mux_ch_5v0
+X0_DUT31 DUT_IN[31] DUT_OUT[31] VDD_INV VSS inv_dut_031
+X0_MUX32 IN SEL[32] OUT DUT_IN[32] DUT_OUT[32] VDD_DEC VSS mux_ch_5v0
+X0_DUT32 DUT_IN[32] DUT_OUT[32] VDD_INV VSS inv_dut_032
+X0_MUX33 IN SEL[33] OUT DUT_IN[33] DUT_OUT[33] VDD_DEC VSS mux_ch_5v0
+X0_DUT33 DUT_IN[33] DUT_OUT[33] VDD_INV VSS inv_dut_033
+X0_MUX34 IN SEL[34] OUT DUT_IN[34] DUT_OUT[34] VDD_DEC VSS mux_ch_5v0
+X0_DUT34 DUT_IN[34] DUT_OUT[34] VDD_INV VSS inv_dut_034
+X0_MUX35 IN SEL[35] OUT DUT_IN[35] DUT_OUT[35] VDD_DEC VSS mux_ch_5v0
+X0_DUT35 DUT_IN[35] DUT_OUT[35] VDD_INV VSS inv_dut_035
+X0_MUX36 IN SEL[36] OUT DUT_IN[36] DUT_OUT[36] VDD_DEC VSS mux_ch_5v0
+X0_DUT36 DUT_IN[36] DUT_OUT[36] VDD_INV VSS inv_dut_036
+X0_MUX37 IN SEL[37] OUT DUT_IN[37] DUT_OUT[37] VDD_DEC VSS mux_ch_5v0
+X0_DUT37 DUT_IN[37] DUT_OUT[37] VDD_INV VSS inv_dut_037
+X0_MUX38 IN SEL[38] OUT DUT_IN[38] DUT_OUT[38] VDD_DEC VSS mux_ch_5v0
+X0_DUT38 DUT_IN[38] DUT_OUT[38] VDD_INV VSS inv_dut_038
+X0_MUX39 IN SEL[39] OUT DUT_IN[39] DUT_OUT[39] VDD_DEC VSS mux_ch_5v0
+X0_DUT39 DUT_IN[39] DUT_OUT[39] VDD_INV VSS inv_dut_039
+X0_MUX40 IN SEL[40] OUT DUT_IN[40] DUT_OUT[40] VDD_DEC VSS mux_ch_5v0
+X0_DUT40 DUT_IN[40] DUT_OUT[40] VDD_INV VSS inv_dut_040
+X0_MUX41 IN SEL[41] OUT DUT_IN[41] DUT_OUT[41] VDD_DEC VSS mux_ch_5v0
+X0_DUT41 DUT_IN[41] DUT_OUT[41] VDD_INV VSS inv_dut_041
+X0_MUX42 IN SEL[42] OUT DUT_IN[42] DUT_OUT[42] VDD_DEC VSS mux_ch_5v0
+X0_DUT42 DUT_IN[42] DUT_OUT[42] VDD_INV VSS inv_dut_042
+X0_MUX43 IN SEL[43] OUT DUT_IN[43] DUT_OUT[43] VDD_DEC VSS mux_ch_5v0
+X0_DUT43 DUT_IN[43] DUT_OUT[43] VDD_INV VSS inv_dut_043
+X0_MUX44 IN SEL[44] OUT DUT_IN[44] DUT_OUT[44] VDD_DEC VSS mux_ch_5v0
+X0_DUT44 DUT_IN[44] DUT_OUT[44] VDD_INV VSS inv_dut_044
+X0_MUX45 IN SEL[45] OUT DUT_IN[45] DUT_OUT[45] VDD_DEC VSS mux_ch_5v0
+X0_DUT45 DUT_IN[45] DUT_OUT[45] VDD_INV VSS inv_dut_045
+X0_MUX46 IN SEL[46] OUT DUT_IN[46] DUT_OUT[46] VDD_DEC VSS mux_ch_5v0
+X0_DUT46 DUT_IN[46] DUT_OUT[46] VDD_INV VSS inv_dut_046
+X0_MUX47 IN SEL[47] OUT DUT_IN[47] DUT_OUT[47] VDD_DEC VSS mux_ch_5v0
+X0_DUT47 DUT_IN[47] DUT_OUT[47] VDD_INV VSS inv_dut_047
+X0_MUX48 IN SEL[48] OUT DUT_IN[48] DUT_OUT[48] VDD_DEC VSS mux_ch_5v0
+X0_DUT48 DUT_IN[48] DUT_OUT[48] VDD_INV VSS inv_dut_048
+X0_MUX49 IN SEL[49] OUT DUT_IN[49] DUT_OUT[49] VDD_DEC VSS mux_ch_5v0
+X0_DUT49 DUT_IN[49] DUT_OUT[49] VDD_INV VSS inv_dut_049
+X0_MUX50 IN SEL[50] OUT DUT_IN[50] DUT_OUT[50] VDD_DEC VSS mux_ch_5v0
+X0_DUT50 DUT_IN[50] DUT_OUT[50] VDD_INV VSS inv_dut_050
+X0_MUX51 IN SEL[51] OUT DUT_IN[51] DUT_OUT[51] VDD_DEC VSS mux_ch_5v0
+X0_DUT51 DUT_IN[51] DUT_OUT[51] VDD_INV VSS inv_dut_051
+X0_MUX52 IN SEL[52] OUT DUT_IN[52] DUT_OUT[52] VDD_DEC VSS mux_ch_5v0
+X0_DUT52 DUT_IN[52] DUT_OUT[52] VDD_INV VSS inv_dut_052
+X0_MUX53 IN SEL[53] OUT DUT_IN[53] DUT_OUT[53] VDD_DEC VSS mux_ch_5v0
+X0_DUT53 DUT_IN[53] DUT_OUT[53] VDD_INV VSS inv_dut_053
+X0_MUX54 IN SEL[54] OUT DUT_IN[54] DUT_OUT[54] VDD_DEC VSS mux_ch_5v0
+X0_DUT54 DUT_IN[54] DUT_OUT[54] VDD_INV VSS inv_dut_054
+X0_MUX55 IN SEL[55] OUT DUT_IN[55] DUT_OUT[55] VDD_DEC VSS mux_ch_5v0
+X0_DUT55 DUT_IN[55] DUT_OUT[55] VDD_INV VSS inv_dut_055
+X0_MUX56 IN SEL[56] OUT DUT_IN[56] DUT_OUT[56] VDD_DEC VSS mux_ch_5v0
+X0_DUT56 DUT_IN[56] DUT_OUT[56] VDD_INV VSS inv_dut_056
+X0_MUX57 IN SEL[57] OUT DUT_IN[57] DUT_OUT[57] VDD_DEC VSS mux_ch_5v0
+X0_DUT57 DUT_IN[57] DUT_OUT[57] VDD_INV VSS inv_dut_057
+X0_MUX58 IN SEL[58] OUT DUT_IN[58] DUT_OUT[58] VDD_DEC VSS mux_ch_5v0
+X0_DUT58 DUT_IN[58] DUT_OUT[58] VDD_INV VSS inv_dut_058
+X0_MUX59 IN SEL[59] OUT DUT_IN[59] DUT_OUT[59] VDD_DEC VSS mux_ch_5v0
+X0_DUT59 DUT_IN[59] DUT_OUT[59] VDD_INV VSS inv_dut_059
+X0_MUX60 IN SEL[60] OUT DUT_IN[60] DUT_OUT[60] VDD_DEC VSS mux_ch_5v0
+X0_DUT60 DUT_IN[60] DUT_OUT[60] VDD_INV VSS inv_dut_060
+X0_MUX61 IN SEL[61] OUT DUT_IN[61] DUT_OUT[61] VDD_DEC VSS mux_ch_5v0
+X0_DUT61 DUT_IN[61] DUT_OUT[61] VDD_INV VSS inv_dut_061
+X0_MUX62 IN SEL[62] OUT DUT_IN[62] DUT_OUT[62] VDD_DEC VSS mux_ch_5v0
+X0_DUT62 DUT_IN[62] DUT_OUT[62] VDD_INV VSS inv_dut_062
+X0_MUX63 IN SEL[63] OUT DUT_IN[63] DUT_OUT[63] VDD_DEC VSS mux_ch_5v0
+X0_DUT63 DUT_IN[63] DUT_OUT[63] VDD_INV VSS inv_dut_063
+X0_MUX64 IN SEL[64] OUT DUT_IN[64] DUT_OUT[64] VDD_DEC VSS mux_ch_5v0
+X0_DUT64 DUT_IN[64] DUT_OUT[64] VDD_INV VSS inv_dut_064
+X0_MUX65 IN SEL[65] OUT DUT_IN[65] DUT_OUT[65] VDD_DEC VSS mux_ch_5v0
+X0_DUT65 DUT_IN[65] DUT_OUT[65] VDD_INV VSS inv_dut_065
+X0_MUX66 IN SEL[66] OUT DUT_IN[66] DUT_OUT[66] VDD_DEC VSS mux_ch_5v0
+X0_DUT66 DUT_IN[66] DUT_OUT[66] VDD_INV VSS inv_dut_066
+X0_MUX67 IN SEL[67] OUT DUT_IN[67] DUT_OUT[67] VDD_DEC VSS mux_ch_5v0
+X0_DUT67 DUT_IN[67] DUT_OUT[67] VDD_INV VSS inv_dut_067
+X0_MUX68 IN SEL[68] OUT DUT_IN[68] DUT_OUT[68] VDD_DEC VSS mux_ch_5v0
+X0_DUT68 DUT_IN[68] DUT_OUT[68] VDD_INV VSS inv_dut_068
+X0_MUX69 IN SEL[69] OUT DUT_IN[69] DUT_OUT[69] VDD_DEC VSS mux_ch_5v0
+X0_DUT69 DUT_IN[69] DUT_OUT[69] VDD_INV VSS inv_dut_069
+X0_MUX70 IN SEL[70] OUT DUT_IN[70] DUT_OUT[70] VDD_DEC VSS mux_ch_5v0
+X0_DUT70 DUT_IN[70] DUT_OUT[70] VDD_INV VSS inv_dut_070
+X0_MUX71 IN SEL[71] OUT DUT_IN[71] DUT_OUT[71] VDD_DEC VSS mux_ch_5v0
+X0_DUT71 DUT_IN[71] DUT_OUT[71] VDD_INV VSS inv_dut_071
+X0_MUX72 IN SEL[72] OUT DUT_IN[72] DUT_OUT[72] VDD_DEC VSS mux_ch_5v0
+X0_DUT72 DUT_IN[72] DUT_OUT[72] VDD_INV VSS inv_dut_072
+X0_MUX73 IN SEL[73] OUT DUT_IN[73] DUT_OUT[73] VDD_DEC VSS mux_ch_5v0
+X0_DUT73 DUT_IN[73] DUT_OUT[73] VDD_INV VSS inv_dut_073
+X0_MUX74 IN SEL[74] OUT DUT_IN[74] DUT_OUT[74] VDD_DEC VSS mux_ch_5v0
+X0_DUT74 DUT_IN[74] DUT_OUT[74] VDD_INV VSS inv_dut_074
+X0_MUX75 IN SEL[75] OUT DUT_IN[75] DUT_OUT[75] VDD_DEC VSS mux_ch_5v0
+X0_DUT75 DUT_IN[75] DUT_OUT[75] VDD_INV VSS inv_dut_075
+X0_MUX76 IN SEL[76] OUT DUT_IN[76] DUT_OUT[76] VDD_DEC VSS mux_ch_5v0
+X0_DUT76 DUT_IN[76] DUT_OUT[76] VDD_INV VSS inv_dut_076
+X0_MUX77 IN SEL[77] OUT DUT_IN[77] DUT_OUT[77] VDD_DEC VSS mux_ch_5v0
+X0_DUT77 DUT_IN[77] DUT_OUT[77] VDD_INV VSS inv_dut_077
+X0_MUX78 IN SEL[78] OUT DUT_IN[78] DUT_OUT[78] VDD_DEC VSS mux_ch_5v0
+X0_DUT78 DUT_IN[78] DUT_OUT[78] VDD_INV VSS inv_dut_078
+X0_MUX79 IN SEL[79] OUT DUT_IN[79] DUT_OUT[79] VDD_DEC VSS mux_ch_5v0
+X0_DUT79 DUT_IN[79] DUT_OUT[79] VDD_INV VSS inv_dut_079
+X0_MUX80 IN SEL[80] OUT DUT_IN[80] DUT_OUT[80] VDD_DEC VSS mux_ch_5v0
+X0_DUT80 DUT_IN[80] DUT_OUT[80] VDD_INV VSS inv_dut_080
+X0_MUX81 IN SEL[81] OUT DUT_IN[81] DUT_OUT[81] VDD_DEC VSS mux_ch_5v0
+X0_DUT81 DUT_IN[81] DUT_OUT[81] VDD_INV VSS inv_dut_081
+X0_MUX82 IN SEL[82] OUT DUT_IN[82] DUT_OUT[82] VDD_DEC VSS mux_ch_5v0
+X0_DUT82 DUT_IN[82] DUT_OUT[82] VDD_INV VSS inv_dut_082
+X0_MUX83 IN SEL[83] OUT DUT_IN[83] DUT_OUT[83] VDD_DEC VSS mux_ch_5v0
+X0_DUT83 DUT_IN[83] DUT_OUT[83] VDD_INV VSS inv_dut_083
+X0_MUX84 IN SEL[84] OUT DUT_IN[84] DUT_OUT[84] VDD_DEC VSS mux_ch_5v0
+X0_DUT84 DUT_IN[84] DUT_OUT[84] VDD_INV VSS inv_dut_084
+X0_MUX85 IN SEL[85] OUT DUT_IN[85] DUT_OUT[85] VDD_DEC VSS mux_ch_5v0
+X0_DUT85 DUT_IN[85] DUT_OUT[85] VDD_INV VSS inv_dut_085
+X0_MUX86 IN SEL[86] OUT DUT_IN[86] DUT_OUT[86] VDD_DEC VSS mux_ch_5v0
+X0_DUT86 DUT_IN[86] DUT_OUT[86] VDD_INV VSS inv_dut_086
+X0_MUX87 IN SEL[87] OUT DUT_IN[87] DUT_OUT[87] VDD_DEC VSS mux_ch_5v0
+X0_DUT87 DUT_IN[87] DUT_OUT[87] VDD_INV VSS inv_dut_087
+X0_MUX88 IN SEL[88] OUT DUT_IN[88] DUT_OUT[88] VDD_DEC VSS mux_ch_5v0
+X0_DUT88 DUT_IN[88] DUT_OUT[88] VDD_INV VSS inv_dut_088
+X0_MUX89 IN SEL[89] OUT DUT_IN[89] DUT_OUT[89] VDD_DEC VSS mux_ch_5v0
+X0_DUT89 DUT_IN[89] DUT_OUT[89] VDD_INV VSS inv_dut_089
+X0_MUX90 IN SEL[90] OUT DUT_IN[90] DUT_OUT[90] VDD_DEC VSS mux_ch_5v0
+X0_DUT90 DUT_IN[90] DUT_OUT[90] VDD_INV VSS inv_dut_090
+X0_MUX91 IN SEL[91] OUT DUT_IN[91] DUT_OUT[91] VDD_DEC VSS mux_ch_5v0
+X0_DUT91 DUT_IN[91] DUT_OUT[91] VDD_INV VSS inv_dut_091
+X0_MUX92 IN SEL[92] OUT DUT_IN[92] DUT_OUT[92] VDD_DEC VSS mux_ch_5v0
+X0_DUT92 DUT_IN[92] DUT_OUT[92] VDD_INV VSS inv_dut_092
+X0_MUX93 IN SEL[93] OUT DUT_IN[93] DUT_OUT[93] VDD_DEC VSS mux_ch_5v0
+X0_DUT93 DUT_IN[93] DUT_OUT[93] VDD_INV VSS inv_dut_093
+X0_MUX94 IN SEL[94] OUT DUT_IN[94] DUT_OUT[94] VDD_DEC VSS mux_ch_5v0
+X0_DUT94 DUT_IN[94] DUT_OUT[94] VDD_INV VSS inv_dut_094
+X0_MUX95 IN SEL[95] OUT DUT_IN[95] DUT_OUT[95] VDD_DEC VSS mux_ch_5v0
+X0_DUT95 DUT_IN[95] DUT_OUT[95] VDD_INV VSS inv_dut_095
+X0_MUX96 IN SEL[96] OUT DUT_IN[96] DUT_OUT[96] VDD_DEC VSS mux_ch_5v0
+X0_DUT96 DUT_IN[96] DUT_OUT[96] VDD_INV VSS inv_dut_096
+X0_MUX97 IN SEL[97] OUT DUT_IN[97] DUT_OUT[97] VDD_DEC VSS mux_ch_5v0
+X0_DUT97 DUT_IN[97] DUT_OUT[97] VDD_INV VSS inv_dut_097
+X0_MUX98 IN SEL[98] OUT DUT_IN[98] DUT_OUT[98] VDD_DEC VSS mux_ch_5v0
+X0_DUT98 DUT_IN[98] DUT_OUT[98] VDD_INV VSS inv_dut_098
+X0_MUX99 IN SEL[99] OUT DUT_IN[99] DUT_OUT[99] VDD_DEC VSS mux_ch_5v0
+X0_DUT99 DUT_IN[99] DUT_OUT[99] VDD_INV VSS inv_dut_099
+X0_MUX100 IN SEL[100] OUT DUT_IN[100] DUT_OUT[100] VDD_DEC VSS mux_ch_5v0
+X0_DUT100 DUT_IN[100] DUT_OUT[100] VDD_INV VSS inv_dut_100
+X0_MUX101 IN SEL[101] OUT DUT_IN[101] DUT_OUT[101] VDD_DEC VSS mux_ch_5v0
+X0_DUT101 DUT_IN[101] DUT_OUT[101] VDD_INV VSS inv_dut_101
+X0_MUX102 IN SEL[102] OUT DUT_IN[102] DUT_OUT[102] VDD_DEC VSS mux_ch_5v0
+X0_DUT102 DUT_IN[102] DUT_OUT[102] VDD_INV VSS inv_dut_102
+X0_MUX103 IN SEL[103] OUT DUT_IN[103] DUT_OUT[103] VDD_DEC VSS mux_ch_5v0
+X0_DUT103 DUT_IN[103] DUT_OUT[103] VDD_INV VSS inv_dut_103
+X0_MUX104 IN SEL[104] OUT DUT_IN[104] DUT_OUT[104] VDD_DEC VSS mux_ch_5v0
+X0_DUT104 DUT_IN[104] DUT_OUT[104] VDD_INV VSS inv_dut_104
+X0_MUX105 IN SEL[105] OUT DUT_IN[105] DUT_OUT[105] VDD_DEC VSS mux_ch_5v0
+X0_DUT105 DUT_IN[105] DUT_OUT[105] VDD_INV VSS inv_dut_105
+X0_MUX106 IN SEL[106] OUT DUT_IN[106] DUT_OUT[106] VDD_DEC VSS mux_ch_5v0
+X0_DUT106 DUT_IN[106] DUT_OUT[106] VDD_INV VSS inv_dut_106
+X0_MUX107 IN SEL[107] OUT DUT_IN[107] DUT_OUT[107] VDD_DEC VSS mux_ch_5v0
+X0_DUT107 DUT_IN[107] DUT_OUT[107] VDD_INV VSS inv_dut_107
+X0_MUX108 IN SEL[108] OUT DUT_IN[108] DUT_OUT[108] VDD_DEC VSS mux_ch_5v0
+X0_DUT108 DUT_IN[108] DUT_OUT[108] VDD_INV VSS inv_dut_108
+X0_MUX109 IN SEL[109] OUT DUT_IN[109] DUT_OUT[109] VDD_DEC VSS mux_ch_5v0
+X0_DUT109 DUT_IN[109] DUT_OUT[109] VDD_INV VSS inv_dut_109
+X0_MUX110 IN SEL[110] OUT DUT_IN[110] DUT_OUT[110] VDD_DEC VSS mux_ch_5v0
+X0_DUT110 DUT_IN[110] DUT_OUT[110] VDD_INV VSS inv_dut_110
+X0_MUX111 IN SEL[111] OUT DUT_IN[111] DUT_OUT[111] VDD_DEC VSS mux_ch_5v0
+X0_DUT111 DUT_IN[111] DUT_OUT[111] VDD_INV VSS inv_dut_111
+X0_MUX112 IN SEL[112] OUT DUT_IN[112] DUT_OUT[112] VDD_DEC VSS mux_ch_5v0
+X0_DUT112 DUT_IN[112] DUT_OUT[112] VDD_INV VSS inv_dut_112
+X0_MUX113 IN SEL[113] OUT DUT_IN[113] DUT_OUT[113] VDD_DEC VSS mux_ch_5v0
+X0_DUT113 DUT_IN[113] DUT_OUT[113] VDD_INV VSS inv_dut_113
+X0_MUX114 IN SEL[114] OUT DUT_IN[114] DUT_OUT[114] VDD_DEC VSS mux_ch_5v0
+X0_DUT114 DUT_IN[114] DUT_OUT[114] VDD_INV VSS inv_dut_114
+X0_MUX115 IN SEL[115] OUT DUT_IN[115] DUT_OUT[115] VDD_DEC VSS mux_ch_5v0
+X0_DUT115 DUT_IN[115] DUT_OUT[115] VDD_INV VSS inv_dut_115
+X0_MUX116 IN SEL[116] OUT DUT_IN[116] DUT_OUT[116] VDD_DEC VSS mux_ch_5v0
+X0_DUT116 DUT_IN[116] DUT_OUT[116] VDD_INV VSS inv_dut_116
+X0_MUX117 IN SEL[117] OUT DUT_IN[117] DUT_OUT[117] VDD_DEC VSS mux_ch_5v0
+X0_DUT117 DUT_IN[117] DUT_OUT[117] VDD_INV VSS inv_dut_117
+X0_MUX118 IN SEL[118] OUT DUT_IN[118] DUT_OUT[118] VDD_DEC VSS mux_ch_5v0
+X0_DUT118 DUT_IN[118] DUT_OUT[118] VDD_INV VSS inv_dut_118
+X0_MUX119 IN SEL[119] OUT DUT_IN[119] DUT_OUT[119] VDD_DEC VSS mux_ch_5v0
+X0_DUT119 DUT_IN[119] DUT_OUT[119] VDD_INV VSS inv_dut_119
+X0_MUX120 IN SEL[120] OUT DUT_IN[120] DUT_OUT[120] VDD_DEC VSS mux_ch_5v0
+X0_DUT120 DUT_IN[120] DUT_OUT[120] VDD_INV VSS inv_dut_120
+X0_MUX121 IN SEL[121] OUT DUT_IN[121] DUT_OUT[121] VDD_DEC VSS mux_ch_5v0
+X0_DUT121 DUT_IN[121] DUT_OUT[121] VDD_INV VSS inv_dut_121
+X0_MUX122 IN SEL[122] OUT DUT_IN[122] DUT_OUT[122] VDD_DEC VSS mux_ch_5v0
+X0_DUT122 DUT_IN[122] DUT_OUT[122] VDD_INV VSS inv_dut_122
+X0_MUX123 IN SEL[123] OUT DUT_IN[123] DUT_OUT[123] VDD_DEC VSS mux_ch_5v0
+X0_DUT123 DUT_IN[123] DUT_OUT[123] VDD_INV VSS inv_dut_123
+X0_MUX124 IN SEL[124] OUT DUT_IN[124] DUT_OUT[124] VDD_DEC VSS mux_ch_5v0
+X0_DUT124 DUT_IN[124] DUT_OUT[124] VDD_INV VSS inv_dut_124
+X0_MUX125 IN SEL[125] OUT DUT_IN[125] DUT_OUT[125] VDD_DEC VSS mux_ch_5v0
+X0_DUT125 DUT_IN[125] DUT_OUT[125] VDD_INV VSS inv_dut_125
+X0_MUX126 IN SEL[126] OUT DUT_IN[126] DUT_OUT[126] VDD_DEC VSS mux_ch_5v0
+X0_DUT126 DUT_IN[126] DUT_OUT[126] VDD_INV VSS inv_dut_126
+X0_MUX127 IN SEL[127] OUT DUT_IN[127] DUT_OUT[127] VDD_DEC VSS mux_ch_5v0
+X0_DUT127 DUT_IN[127] DUT_OUT[127] VDD_INV VSS inv_dut_127
+.ends
+
+
+* expanding   symbol:  mux_ch_5v0.sym # of pins=7
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/mux_ch_5v0.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/mux_ch_5v0.sch
+.subckt mux_ch_5v0 IN SEL OUT DUT_IN DUT_OUT VDD_DEC VSS
+*.PININFO IN:B SEL:I OUT:B DUT_IN:B DUT_OUT:B VDD_DEC:B VSS:B
+X0_SELB SEL SELB VDD_DEC VSS inv_ctrl_5v0
+X0_TGIN IN DUT_IN SEL SELB VDD_DEC VSS tgate_5v0
+X0_TGOUT DUT_OUT OUT SEL SELB VDD_DEC VSS tgate_5v0
+MPD DUT_IN SELB VSS VSS nfet_05v0 L=0.60u W=0.42u nf=1
+DANT VSS SEL diode_nw2ps_06v0 A='1.4u * 1.2u ' P='2*1.4u + 2*1.2u '
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_000.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_000.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_000.sch
+.subckt inv_dut_000 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=1.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_001.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_001.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_001.sch
+.subckt inv_dut_001 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_002.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_002.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_002.sch
+.subckt inv_dut_002 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_003.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_003.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_003.sch
+.subckt inv_dut_003 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_004.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_004.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_004.sch
+.subckt inv_dut_004 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=7.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_005.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_005.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_005.sch
+.subckt inv_dut_005 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_006.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_006.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_006.sch
+.subckt inv_dut_006 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_007.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_007.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_007.sch
+.subckt inv_dut_007 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_008.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_008.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_008.sch
+.subckt inv_dut_008 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_009.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_009.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_009.sch
+.subckt inv_dut_009 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_010.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_010.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_010.sch
+.subckt inv_dut_010 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=7.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_011.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_011.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_011.sch
+.subckt inv_dut_011 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_012.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_012.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_012.sch
+.subckt inv_dut_012 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_013.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_013.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_013.sch
+.subckt inv_dut_013 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_014.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_014.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_014.sch
+.subckt inv_dut_014 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_015.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_015.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_015.sch
+.subckt inv_dut_015 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.80u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.80u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_016.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_016.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_016.sch
+.subckt inv_dut_016 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=0.90u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_017.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_017.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_017.sch
+.subckt inv_dut_017 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_018.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_018.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_018.sch
+.subckt inv_dut_018 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_019.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_019.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_019.sch
+.subckt inv_dut_019 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_020.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_020.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_020.sch
+.subckt inv_dut_020 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_021.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_021.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_021.sch
+.subckt inv_dut_021 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=2.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_022.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_022.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_022.sch
+.subckt inv_dut_022 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=2.70u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_023.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_023.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_023.sch
+.subckt inv_dut_023 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_024.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_024.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_024.sch
+.subckt inv_dut_024 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_025.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_025.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_025.sch
+.subckt inv_dut_025 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_026.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_026.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_026.sch
+.subckt inv_dut_026 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_027.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_027.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_027.sch
+.subckt inv_dut_027 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_028.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_028.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_028.sch
+.subckt inv_dut_028 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=2.70u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_029.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_029.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_029.sch
+.subckt inv_dut_029 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_030.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_030.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_030.sch
+.subckt inv_dut_030 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_031.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_031.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_031.sch
+.subckt inv_dut_031 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.90u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.90u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_032.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_032.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_032.sch
+.subckt inv_dut_032 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=1.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_033.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_033.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_033.sch
+.subckt inv_dut_033 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_034.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_034.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_034.sch
+.subckt inv_dut_034 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_035.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_035.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_035.sch
+.subckt inv_dut_035 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_036.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_036.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_036.sch
+.subckt inv_dut_036 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=7.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_037.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_037.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_037.sch
+.subckt inv_dut_037 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_038.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_038.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_038.sch
+.subckt inv_dut_038 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_039.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_039.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_039.sch
+.subckt inv_dut_039 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_040.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_040.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_040.sch
+.subckt inv_dut_040 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_041.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_041.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_041.sch
+.subckt inv_dut_041 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_042.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_042.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_042.sch
+.subckt inv_dut_042 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=7.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_043.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_043.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_043.sch
+.subckt inv_dut_043 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_044.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_044.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_044.sch
+.subckt inv_dut_044 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_045.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_045.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_045.sch
+.subckt inv_dut_045 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_046.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_046.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_046.sch
+.subckt inv_dut_046 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_047.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_047.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_047.sch
+.subckt inv_dut_047 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.80u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.80u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_048.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_048.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_048.sch
+.subckt inv_dut_048 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=0.90u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_049.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_049.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_049.sch
+.subckt inv_dut_049 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_050.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_050.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_050.sch
+.subckt inv_dut_050 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_051.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_051.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_051.sch
+.subckt inv_dut_051 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_052.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_052.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_052.sch
+.subckt inv_dut_052 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_053.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_053.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_053.sch
+.subckt inv_dut_053 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=2.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_054.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_054.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_054.sch
+.subckt inv_dut_054 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=2.70u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_055.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_055.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_055.sch
+.subckt inv_dut_055 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_056.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_056.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_056.sch
+.subckt inv_dut_056 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_057.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_057.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_057.sch
+.subckt inv_dut_057 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_058.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_058.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_058.sch
+.subckt inv_dut_058 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_059.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_059.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_059.sch
+.subckt inv_dut_059 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_060.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_060.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_060.sch
+.subckt inv_dut_060 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=2.70u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_061.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_061.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_061.sch
+.subckt inv_dut_061 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_062.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_062.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_062.sch
+.subckt inv_dut_062 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_063.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_063.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_063.sch
+.subckt inv_dut_063 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.90u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.90u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_064.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_064.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_064.sch
+.subckt inv_dut_064 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=1.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_065.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_065.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_065.sch
+.subckt inv_dut_065 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_066.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_066.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_066.sch
+.subckt inv_dut_066 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_067.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_067.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_067.sch
+.subckt inv_dut_067 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_068.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_068.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_068.sch
+.subckt inv_dut_068 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=7.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_069.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_069.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_069.sch
+.subckt inv_dut_069 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_070.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_070.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_070.sch
+.subckt inv_dut_070 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_071.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_071.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_071.sch
+.subckt inv_dut_071 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_072.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_072.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_072.sch
+.subckt inv_dut_072 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_073.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_073.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_073.sch
+.subckt inv_dut_073 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_074.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_074.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_074.sch
+.subckt inv_dut_074 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=7.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_075.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_075.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_075.sch
+.subckt inv_dut_075 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_076.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_076.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_076.sch
+.subckt inv_dut_076 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_077.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_077.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_077.sch
+.subckt inv_dut_077 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_078.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_078.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_078.sch
+.subckt inv_dut_078 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_079.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_079.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_079.sch
+.subckt inv_dut_079 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.80u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.80u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_080.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_080.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_080.sch
+.subckt inv_dut_080 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=0.90u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_081.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_081.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_081.sch
+.subckt inv_dut_081 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_082.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_082.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_082.sch
+.subckt inv_dut_082 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_083.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_083.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_083.sch
+.subckt inv_dut_083 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_084.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_084.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_084.sch
+.subckt inv_dut_084 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_085.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_085.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_085.sch
+.subckt inv_dut_085 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=2.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_086.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_086.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_086.sch
+.subckt inv_dut_086 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=2.70u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_087.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_087.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_087.sch
+.subckt inv_dut_087 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_088.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_088.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_088.sch
+.subckt inv_dut_088 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_089.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_089.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_089.sch
+.subckt inv_dut_089 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_090.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_090.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_090.sch
+.subckt inv_dut_090 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_091.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_091.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_091.sch
+.subckt inv_dut_091 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_092.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_092.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_092.sch
+.subckt inv_dut_092 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=2.70u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_093.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_093.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_093.sch
+.subckt inv_dut_093 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_094.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_094.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_094.sch
+.subckt inv_dut_094 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_095.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_095.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_095.sch
+.subckt inv_dut_095 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.90u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.90u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_096.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_096.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_096.sch
+.subckt inv_dut_096 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=1.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_097.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_097.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_097.sch
+.subckt inv_dut_097 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_098.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_098.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_098.sch
+.subckt inv_dut_098 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_099.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_099.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_099.sch
+.subckt inv_dut_099 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_100.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_100.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_100.sch
+.subckt inv_dut_100 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=7.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_101.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_101.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_101.sch
+.subckt inv_dut_101 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_102.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_102.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_102.sch
+.subckt inv_dut_102 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_103.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_103.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_103.sch
+.subckt inv_dut_103 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_104.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_104.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_104.sch
+.subckt inv_dut_104 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=0.60u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=0.60u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_105.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_105.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_105.sch
+.subckt inv_dut_105 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=3.60u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_106.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_106.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_106.sch
+.subckt inv_dut_106 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=7.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_107.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_107.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_107.sch
+.subckt inv_dut_107 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_108.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_108.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_108.sch
+.subckt inv_dut_108 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=5.40u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_109.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_109.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_109.sch
+.subckt inv_dut_109 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=10.80u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_110.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_110.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_110.sch
+.subckt inv_dut_110 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.20u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.20u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_111.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_111.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_111.sch
+.subckt inv_dut_111 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_05v0 L=1.80u W=16.20u nf=1
+MN Y A VSS VSS nfet_05v0 L=1.80u W=5.40u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_112.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_112.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_112.sch
+.subckt inv_dut_112 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=0.90u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_113.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_113.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_113.sch
+.subckt inv_dut_113 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_114.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_114.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_114.sch
+.subckt inv_dut_114 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=3.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_115.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_115.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_115.sch
+.subckt inv_dut_115 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_116.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_116.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_116.sch
+.subckt inv_dut_116 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_117.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_117.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_117.sch
+.subckt inv_dut_117 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=2.60u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_118.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_118.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_118.sch
+.subckt inv_dut_118 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=2.70u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_119.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_119.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_119.sch
+.subckt inv_dut_119 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_120.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_120.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_120.sch
+.subckt inv_dut_120 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.30u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.30u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_121.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_121.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_121.sch
+.subckt inv_dut_121 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=1.80u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_122.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_122.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_122.sch
+.subckt inv_dut_122 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=3.60u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_123.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_123.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_123.sch
+.subckt inv_dut_123 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_124.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_124.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_124.sch
+.subckt inv_dut_124 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=2.70u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=0.90u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_125.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_125.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_125.sch
+.subckt inv_dut_125 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=5.40u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=1.80u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_126.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_126.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_126.sch
+.subckt inv_dut_126 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.60u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.60u W=2.70u nf=1
+.ends
+
+
+* expanding   symbol:  dut/inv_dut_127.sym # of pins=4
+** sym_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_127.sym
+** sch_path: /home/noritsuna/workshop_inverter/inverter_matrix/dut/inv_dut_127.sch
+.subckt inv_dut_127 A Y VDD VSS
+*.PININFO A:I Y:O VDD:B VSS:B
+MP Y A VDD VDD pfet_03v3 L=0.90u W=8.10u nf=1
+MN Y A VSS VSS nfet_03v3 L=0.90u W=2.70u nf=1
+.ends
+

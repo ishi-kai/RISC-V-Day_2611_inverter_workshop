@@ -1,0 +1,29 @@
+{
+  "DESIGN_NAME": "decoder_7to128",
+  "VERILOG_FILES": [
+    "dir::../src/decoder_7to128.v"
+  ],
+  "CLOCK_PERIOD": 100,
+  "FP_SIZING": "absolute",
+  "RT_MAX_LAYER": "Metal4",
+  "DIE_AREA": [
+    0,
+    0,
+    200,
+    100 
+  ],
+  "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
+  "STD_CELL_LIBRARY": "gf180mcu_fd_sc_mcu7t5v0",
+  "DEFAULT_CORNER": "nom_tt_025C_5v00",
+  "LIB": {
+    "*_tt_025C_5v00": [
+      "pdk_dir::libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib"
+    ],
+    "*_ss_125C_4v50": [
+      "pdk_dir::libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib"
+    ],
+    "*_ff_n40C_5v50": [
+      "pdk_dir::libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib"
+    ]
+  }
+}

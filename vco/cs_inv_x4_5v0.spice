@@ -1,0 +1,8 @@
+** sch_path: /home/noritsuna/vco/cs_inv_x4_5v0.sch
+.subckt cs_inv_x4_5v0 A Y VBP VDD VBN VSS
+*.PININFO A:I Y:O VBP:I VDD:B VBN:I VSS:B
+MPC NP VBP VDD VDD pfet_05v0 L=1u W=64u nf=1
+MP Y A NP VDD pfet_05v0 L=0.50u W=12u nf=1
+MN Y A NN VSS nfet_05v0 L=0.60u W=6u nf=1
+MNC NN VBN VSS VSS nfet_05v0 L=1u W=16u nf=1
+.ends

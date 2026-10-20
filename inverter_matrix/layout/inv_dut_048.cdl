@@ -1,0 +1,5 @@
+* inv_dut_048: pfet_03v3 W=0.90u L=0.30u / nfet_03v3 W=0.90u L=0.30u
+.SUBCKT inv_dut_048 A Q VDD VSS
+MMP Q A VDD VDD pfet_03v3 W=0.90u L=0.30u
+MMN Q A VSS VSS nfet_03v3 W=0.90u L=0.30u
+.ENDS

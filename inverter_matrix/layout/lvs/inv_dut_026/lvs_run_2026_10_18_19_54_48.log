@@ -1,0 +1,2 @@
+19-Oct-2026 04:54:49 | INFO    | Your Klayout version is: KLayout 0.30.12
+19-Oct-2026 04:54:49 | INFO    | Running Global Foundries 180nm MCU /home/noritsuna/src/gf180mcuD/libs.tech/klayout/tech/lvs/gf180mcu.lvs checks on design /home/noritsuna/workshop_inverter/inverter_matrix/layout/inv_dut_026.gds on cell inv_dut_026

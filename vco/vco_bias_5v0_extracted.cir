@@ -1,0 +1,14 @@
+* Extracted by KLayout with GF180MCU LVS runset on : 17/10/2026 04:21
+
+* cell vco_bias_5v0
+* pin SUB
+.SUBCKT vco_bias_5v0 SUB
+* device instance $1 r0 *1 2.97,7.835 pfet_05v0
+M$1 \$8 \$8 \$3 \$3 pfet_05v0 L=1U W=16U AS=6.2P AD=5.28P PS=23.1U PD=18.64U
+* device instance $5 r0 *1 9.61,7.835 pfet_05v0
+M$5 \$2 \$8 \$3 \$3 pfet_05v0 L=1U W=16U AS=5.28P AD=6.2P PS=18.64U PD=23.1U
+* device instance $9 r0 *1 8.29,1.775 nfet_05v0
+M$9 SUB \$19 \$8 SUB nfet_05v0 L=2U W=2U AS=1.46P AD=1.04P PS=5.46U PD=3.04U
+* device instance $10 r0 *1 10.83,1.775 nfet_05v0
+M$10 \$2 \$2 SUB SUB nfet_05v0 L=1U W=4U AS=1.56P AD=1.98P PS=5.56U PD=7.98U
+.ENDS vco_bias_5v0

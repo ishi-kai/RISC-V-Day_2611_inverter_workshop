@@ -1,0 +1,1040 @@
+* Reference: extracted inv_dut_NNN alone (no decoder / MUX)
+.include /home/noritsuna/workshop_inverter/inverter_matrix/sim_layout/workshop_inverter_layout.cir
+.include /home/noritsuna/pdk/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /home/noritsuna/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+.lib /home/noritsuna/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice diode_typical
+.options method=gear reltol=1e-4 abstol=1e-13 vntol=1e-7 rshunt=1e12
+
+VDD5 VDD5 0 5.0
+VIN5 IN5 0 0
+XR000 Q000 IN5 VDD5 0 inv_dut_000
+XR001 Q001 IN5 VDD5 0 inv_dut_001
+XR002 Q002 IN5 VDD5 0 inv_dut_002
+XR003 Q003 IN5 VDD5 0 inv_dut_003
+XR004 Q004 IN5 VDD5 0 inv_dut_004
+XR005 Q005 IN5 VDD5 0 inv_dut_005
+XR006 Q006 IN5 VDD5 0 inv_dut_006
+XR007 Q007 IN5 VDD5 0 inv_dut_007
+XR008 Q008 IN5 VDD5 0 inv_dut_008
+XR009 Q009 IN5 VDD5 0 inv_dut_009
+XR010 Q010 IN5 VDD5 0 inv_dut_010
+XR011 Q011 IN5 VDD5 0 inv_dut_011
+XR012 Q012 IN5 VDD5 0 inv_dut_012
+XR013 Q013 IN5 VDD5 0 inv_dut_013
+XR014 Q014 IN5 VDD5 0 inv_dut_014
+XR015 Q015 IN5 VDD5 0 inv_dut_015
+XR032 Q032 IN5 VDD5 0 inv_dut_032
+XR033 Q033 IN5 VDD5 0 inv_dut_033
+XR034 Q034 IN5 VDD5 0 inv_dut_034
+XR035 Q035 IN5 VDD5 0 inv_dut_035
+XR036 Q036 IN5 VDD5 0 inv_dut_036
+XR037 Q037 IN5 VDD5 0 inv_dut_037
+XR038 Q038 IN5 VDD5 0 inv_dut_038
+XR039 Q039 IN5 VDD5 0 inv_dut_039
+XR040 Q040 IN5 VDD5 0 inv_dut_040
+XR041 Q041 IN5 VDD5 0 inv_dut_041
+XR042 Q042 IN5 VDD5 0 inv_dut_042
+XR043 Q043 IN5 VDD5 0 inv_dut_043
+XR044 Q044 IN5 VDD5 0 inv_dut_044
+XR045 Q045 IN5 VDD5 0 inv_dut_045
+XR046 Q046 IN5 VDD5 0 inv_dut_046
+XR047 Q047 IN5 VDD5 0 inv_dut_047
+XR064 Q064 IN5 VDD5 0 inv_dut_064
+XR065 Q065 IN5 VDD5 0 inv_dut_065
+XR066 Q066 IN5 VDD5 0 inv_dut_066
+XR067 Q067 IN5 VDD5 0 inv_dut_067
+XR068 Q068 IN5 VDD5 0 inv_dut_068
+XR069 Q069 IN5 VDD5 0 inv_dut_069
+XR070 Q070 IN5 VDD5 0 inv_dut_070
+XR071 Q071 IN5 VDD5 0 inv_dut_071
+XR072 Q072 IN5 VDD5 0 inv_dut_072
+XR073 Q073 IN5 VDD5 0 inv_dut_073
+XR074 Q074 IN5 VDD5 0 inv_dut_074
+XR075 Q075 IN5 VDD5 0 inv_dut_075
+XR076 Q076 IN5 VDD5 0 inv_dut_076
+XR077 Q077 IN5 VDD5 0 inv_dut_077
+XR078 Q078 IN5 VDD5 0 inv_dut_078
+XR079 Q079 IN5 VDD5 0 inv_dut_079
+XR096 Q096 IN5 VDD5 0 inv_dut_096
+XR097 Q097 IN5 VDD5 0 inv_dut_097
+XR098 Q098 IN5 VDD5 0 inv_dut_098
+XR099 Q099 IN5 VDD5 0 inv_dut_099
+XR100 Q100 IN5 VDD5 0 inv_dut_100
+XR101 Q101 IN5 VDD5 0 inv_dut_101
+XR102 Q102 IN5 VDD5 0 inv_dut_102
+XR103 Q103 IN5 VDD5 0 inv_dut_103
+XR104 Q104 IN5 VDD5 0 inv_dut_104
+XR105 Q105 IN5 VDD5 0 inv_dut_105
+XR106 Q106 IN5 VDD5 0 inv_dut_106
+XR107 Q107 IN5 VDD5 0 inv_dut_107
+XR108 Q108 IN5 VDD5 0 inv_dut_108
+XR109 Q109 IN5 VDD5 0 inv_dut_109
+XR110 Q110 IN5 VDD5 0 inv_dut_110
+XR111 Q111 IN5 VDD5 0 inv_dut_111
+VDD3 VDD3 0 3.3
+VIN3 IN3 0 0
+XR016 Q016 IN3 VDD3 0 inv_dut_016
+XR017 Q017 IN3 VDD3 0 inv_dut_017
+XR018 Q018 IN3 VDD3 0 inv_dut_018
+XR019 Q019 IN3 VDD3 0 inv_dut_019
+XR020 Q020 IN3 VDD3 0 inv_dut_020
+XR021 Q021 IN3 VDD3 0 inv_dut_021
+XR022 Q022 IN3 VDD3 0 inv_dut_022
+XR023 Q023 IN3 VDD3 0 inv_dut_023
+XR024 Q024 IN3 VDD3 0 inv_dut_024
+XR025 Q025 IN3 VDD3 0 inv_dut_025
+XR026 Q026 IN3 VDD3 0 inv_dut_026
+XR027 Q027 IN3 VDD3 0 inv_dut_027
+XR028 Q028 IN3 VDD3 0 inv_dut_028
+XR029 Q029 IN3 VDD3 0 inv_dut_029
+XR030 Q030 IN3 VDD3 0 inv_dut_030
+XR031 Q031 IN3 VDD3 0 inv_dut_031
+XR048 Q048 IN3 VDD3 0 inv_dut_048
+XR049 Q049 IN3 VDD3 0 inv_dut_049
+XR050 Q050 IN3 VDD3 0 inv_dut_050
+XR051 Q051 IN3 VDD3 0 inv_dut_051
+XR052 Q052 IN3 VDD3 0 inv_dut_052
+XR053 Q053 IN3 VDD3 0 inv_dut_053
+XR054 Q054 IN3 VDD3 0 inv_dut_054
+XR055 Q055 IN3 VDD3 0 inv_dut_055
+XR056 Q056 IN3 VDD3 0 inv_dut_056
+XR057 Q057 IN3 VDD3 0 inv_dut_057
+XR058 Q058 IN3 VDD3 0 inv_dut_058
+XR059 Q059 IN3 VDD3 0 inv_dut_059
+XR060 Q060 IN3 VDD3 0 inv_dut_060
+XR061 Q061 IN3 VDD3 0 inv_dut_061
+XR062 Q062 IN3 VDD3 0 inv_dut_062
+XR063 Q063 IN3 VDD3 0 inv_dut_063
+XR080 Q080 IN3 VDD3 0 inv_dut_080
+XR081 Q081 IN3 VDD3 0 inv_dut_081
+XR082 Q082 IN3 VDD3 0 inv_dut_082
+XR083 Q083 IN3 VDD3 0 inv_dut_083
+XR084 Q084 IN3 VDD3 0 inv_dut_084
+XR085 Q085 IN3 VDD3 0 inv_dut_085
+XR086 Q086 IN3 VDD3 0 inv_dut_086
+XR087 Q087 IN3 VDD3 0 inv_dut_087
+XR088 Q088 IN3 VDD3 0 inv_dut_088
+XR089 Q089 IN3 VDD3 0 inv_dut_089
+XR090 Q090 IN3 VDD3 0 inv_dut_090
+XR091 Q091 IN3 VDD3 0 inv_dut_091
+XR092 Q092 IN3 VDD3 0 inv_dut_092
+XR093 Q093 IN3 VDD3 0 inv_dut_093
+XR094 Q094 IN3 VDD3 0 inv_dut_094
+XR095 Q095 IN3 VDD3 0 inv_dut_095
+XR112 Q112 IN3 VDD3 0 inv_dut_112
+XR113 Q113 IN3 VDD3 0 inv_dut_113
+XR114 Q114 IN3 VDD3 0 inv_dut_114
+XR115 Q115 IN3 VDD3 0 inv_dut_115
+XR116 Q116 IN3 VDD3 0 inv_dut_116
+XR117 Q117 IN3 VDD3 0 inv_dut_117
+XR118 Q118 IN3 VDD3 0 inv_dut_118
+XR119 Q119 IN3 VDD3 0 inv_dut_119
+XR120 Q120 IN3 VDD3 0 inv_dut_120
+XR121 Q121 IN3 VDD3 0 inv_dut_121
+XR122 Q122 IN3 VDD3 0 inv_dut_122
+XR123 Q123 IN3 VDD3 0 inv_dut_123
+XR124 Q124 IN3 VDD3 0 inv_dut_124
+XR125 Q125 IN3 VDD3 0 inv_dut_125
+XR126 Q126 IN3 VDD3 0 inv_dut_126
+XR127 Q127 IN3 VDD3 0 inv_dut_127
+.control
+dc VIN5 0 5.0 0.005
+let d = v(q000)-v(in5)
+let g = deriv(v(q000))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=0 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q001)-v(in5)
+let g = deriv(v(q001))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=1 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q002)-v(in5)
+let g = deriv(v(q002))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=2 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q003)-v(in5)
+let g = deriv(v(q003))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=3 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q004)-v(in5)
+let g = deriv(v(q004))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=4 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q005)-v(in5)
+let g = deriv(v(q005))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=5 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q006)-v(in5)
+let g = deriv(v(q006))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=6 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q007)-v(in5)
+let g = deriv(v(q007))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=7 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q008)-v(in5)
+let g = deriv(v(q008))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=8 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q009)-v(in5)
+let g = deriv(v(q009))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=9 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q010)-v(in5)
+let g = deriv(v(q010))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=10 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q011)-v(in5)
+let g = deriv(v(q011))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=11 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q012)-v(in5)
+let g = deriv(v(q012))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=12 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q013)-v(in5)
+let g = deriv(v(q013))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=13 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q014)-v(in5)
+let g = deriv(v(q014))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=14 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q015)-v(in5)
+let g = deriv(v(q015))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=15 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q032)-v(in5)
+let g = deriv(v(q032))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=32 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q033)-v(in5)
+let g = deriv(v(q033))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=33 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q034)-v(in5)
+let g = deriv(v(q034))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=34 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q035)-v(in5)
+let g = deriv(v(q035))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=35 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q036)-v(in5)
+let g = deriv(v(q036))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=36 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q037)-v(in5)
+let g = deriv(v(q037))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=37 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q038)-v(in5)
+let g = deriv(v(q038))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=38 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q039)-v(in5)
+let g = deriv(v(q039))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=39 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q040)-v(in5)
+let g = deriv(v(q040))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=40 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q041)-v(in5)
+let g = deriv(v(q041))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=41 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q042)-v(in5)
+let g = deriv(v(q042))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=42 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q043)-v(in5)
+let g = deriv(v(q043))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=43 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q044)-v(in5)
+let g = deriv(v(q044))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=44 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q045)-v(in5)
+let g = deriv(v(q045))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=45 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q046)-v(in5)
+let g = deriv(v(q046))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=46 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q047)-v(in5)
+let g = deriv(v(q047))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=47 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q064)-v(in5)
+let g = deriv(v(q064))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=64 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q065)-v(in5)
+let g = deriv(v(q065))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=65 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q066)-v(in5)
+let g = deriv(v(q066))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=66 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q067)-v(in5)
+let g = deriv(v(q067))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=67 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q068)-v(in5)
+let g = deriv(v(q068))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=68 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q069)-v(in5)
+let g = deriv(v(q069))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=69 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q070)-v(in5)
+let g = deriv(v(q070))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=70 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q071)-v(in5)
+let g = deriv(v(q071))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=71 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q072)-v(in5)
+let g = deriv(v(q072))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=72 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q073)-v(in5)
+let g = deriv(v(q073))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=73 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q074)-v(in5)
+let g = deriv(v(q074))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=74 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q075)-v(in5)
+let g = deriv(v(q075))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=75 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q076)-v(in5)
+let g = deriv(v(q076))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=76 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q077)-v(in5)
+let g = deriv(v(q077))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=77 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q078)-v(in5)
+let g = deriv(v(q078))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=78 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q079)-v(in5)
+let g = deriv(v(q079))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=79 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q096)-v(in5)
+let g = deriv(v(q096))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=96 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q097)-v(in5)
+let g = deriv(v(q097))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=97 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q098)-v(in5)
+let g = deriv(v(q098))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=98 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q099)-v(in5)
+let g = deriv(v(q099))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=99 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q100)-v(in5)
+let g = deriv(v(q100))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=100 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q101)-v(in5)
+let g = deriv(v(q101))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=101 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q102)-v(in5)
+let g = deriv(v(q102))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=102 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q103)-v(in5)
+let g = deriv(v(q103))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=103 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q104)-v(in5)
+let g = deriv(v(q104))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=104 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q105)-v(in5)
+let g = deriv(v(q105))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=105 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q106)-v(in5)
+let g = deriv(v(q106))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=106 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q107)-v(in5)
+let g = deriv(v(q107))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=107 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q108)-v(in5)
+let g = deriv(v(q108))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=108 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q109)-v(in5)
+let g = deriv(v(q109))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=109 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q110)-v(in5)
+let g = deriv(v(q110))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=110 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q111)-v(in5)
+let g = deriv(v(q111))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=111 vinv=5.0 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+dc VIN3 0 3.3 0.005
+let d = v(q016)-v(in3)
+let g = deriv(v(q016))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=16 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q017)-v(in3)
+let g = deriv(v(q017))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=17 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q018)-v(in3)
+let g = deriv(v(q018))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=18 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q019)-v(in3)
+let g = deriv(v(q019))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=19 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q020)-v(in3)
+let g = deriv(v(q020))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=20 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q021)-v(in3)
+let g = deriv(v(q021))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=21 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q022)-v(in3)
+let g = deriv(v(q022))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=22 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q023)-v(in3)
+let g = deriv(v(q023))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=23 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q024)-v(in3)
+let g = deriv(v(q024))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=24 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q025)-v(in3)
+let g = deriv(v(q025))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=25 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q026)-v(in3)
+let g = deriv(v(q026))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=26 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q027)-v(in3)
+let g = deriv(v(q027))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=27 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q028)-v(in3)
+let g = deriv(v(q028))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=28 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q029)-v(in3)
+let g = deriv(v(q029))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=29 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q030)-v(in3)
+let g = deriv(v(q030))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=30 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q031)-v(in3)
+let g = deriv(v(q031))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=31 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q048)-v(in3)
+let g = deriv(v(q048))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=48 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q049)-v(in3)
+let g = deriv(v(q049))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=49 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q050)-v(in3)
+let g = deriv(v(q050))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=50 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q051)-v(in3)
+let g = deriv(v(q051))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=51 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q052)-v(in3)
+let g = deriv(v(q052))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=52 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q053)-v(in3)
+let g = deriv(v(q053))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=53 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q054)-v(in3)
+let g = deriv(v(q054))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=54 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q055)-v(in3)
+let g = deriv(v(q055))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=55 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q056)-v(in3)
+let g = deriv(v(q056))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=56 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q057)-v(in3)
+let g = deriv(v(q057))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=57 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q058)-v(in3)
+let g = deriv(v(q058))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=58 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q059)-v(in3)
+let g = deriv(v(q059))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=59 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q060)-v(in3)
+let g = deriv(v(q060))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=60 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q061)-v(in3)
+let g = deriv(v(q061))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=61 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q062)-v(in3)
+let g = deriv(v(q062))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=62 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q063)-v(in3)
+let g = deriv(v(q063))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=63 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q080)-v(in3)
+let g = deriv(v(q080))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=80 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q081)-v(in3)
+let g = deriv(v(q081))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=81 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q082)-v(in3)
+let g = deriv(v(q082))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=82 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q083)-v(in3)
+let g = deriv(v(q083))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=83 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q084)-v(in3)
+let g = deriv(v(q084))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=84 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q085)-v(in3)
+let g = deriv(v(q085))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=85 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q086)-v(in3)
+let g = deriv(v(q086))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=86 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q087)-v(in3)
+let g = deriv(v(q087))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=87 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q088)-v(in3)
+let g = deriv(v(q088))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=88 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q089)-v(in3)
+let g = deriv(v(q089))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=89 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q090)-v(in3)
+let g = deriv(v(q090))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=90 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q091)-v(in3)
+let g = deriv(v(q091))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=91 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q092)-v(in3)
+let g = deriv(v(q092))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=92 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q093)-v(in3)
+let g = deriv(v(q093))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=93 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q094)-v(in3)
+let g = deriv(v(q094))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=94 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q095)-v(in3)
+let g = deriv(v(q095))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=95 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q112)-v(in3)
+let g = deriv(v(q112))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=112 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q113)-v(in3)
+let g = deriv(v(q113))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=113 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q114)-v(in3)
+let g = deriv(v(q114))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=114 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q115)-v(in3)
+let g = deriv(v(q115))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=115 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q116)-v(in3)
+let g = deriv(v(q116))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=116 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q117)-v(in3)
+let g = deriv(v(q117))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=117 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q118)-v(in3)
+let g = deriv(v(q118))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=118 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q119)-v(in3)
+let g = deriv(v(q119))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=119 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q120)-v(in3)
+let g = deriv(v(q120))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=120 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q121)-v(in3)
+let g = deriv(v(q121))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=121 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q122)-v(in3)
+let g = deriv(v(q122))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=122 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q123)-v(in3)
+let g = deriv(v(q123))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=123 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q124)-v(in3)
+let g = deriv(v(q124))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=124 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q125)-v(in3)
+let g = deriv(v(q125))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=125 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q126)-v(in3)
+let g = deriv(v(q126))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=126 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+let d = v(q127)-v(in3)
+let g = deriv(v(q127))
+meas dc vm when d=0
+meas dc gmax min g
+meas dc vil when g=-1 fall=1
+meas dc vih when g=-1 rise=1
+echo REF ch=127 vinv=3.3 vm=$&vm gain=$&gmax vil=$&vil vih=$&vih
+.endc
+.end

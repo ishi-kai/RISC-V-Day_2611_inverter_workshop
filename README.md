@@ -5,6 +5,9 @@
 
 - [DUTのテンプレート](https://github.com/ishi-kai/RISC-V-Day_MPW_template.git)
 - ![DUT map](images/dut_map.png)
+    - 各 DUT の色は投稿の処理状況（自動で更新。詳細は [report](report/) の `NNN_<日時>.md`）:
+      **緑** ＝ 取り込み済み、**黄** ＝ 取り込み済みだがその後の再投稿がエラー（取り込み済みのものを使用）、
+      **赤** ＝ 投稿があったがエラーのため取り込めていない、**薄青** ＝ 未投稿
 - ![workshop_inverter](images/workshop_inverter.png)
 
 

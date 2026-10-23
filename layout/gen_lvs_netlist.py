@@ -91,7 +91,8 @@ def write_netlist(out, gds, csv_path=DUT_CSV):
     """Write the reference netlist for `gds`; return the number of DUTs with devices."""
     lib = {}
     vco = subckts(os.path.join(ROOT, "vco/vco_only.spice"))
-    vco["vco_only"][0] += " VDD_INV"
+    if "VDD_INV" not in vco["vco_only"][0].split()[2:]:   # newer vco_only.spice already has it
+        vco["vco_only"][0] += " VDD_INV"
     for src in (vco,
                 subckts(os.path.join(ROOT, "inverter_matrix/tgate_5v0_in.spice")),
                 subckts(os.path.join(ROOT, "inverter_matrix/tgate_5v0_out.spice")),

@@ -163,7 +163,7 @@ D[6:0] を 0〜127 と順に切り替え、各チャネルで IN=0 / IN=3.3V の
 
 ## レイアウト抽出ネットリストでの全 128ch 確認（`sim_layout/`）
 
-`../layout/workshop_inverter.gds` を KLayout LVS（`run_lvs.py --combine --top_lvl_pins --spice_comments`、
+`../layout/workshop_inverter.gds`（＝ `workshop_inverter_fullDUT.gds`）を KLayout LVS（`run_lvs.py --combine --top_lvl_pins --spice_comments`、
 LVS 一致）で抽出したネットリストを使う。デコーダはスタンダードセルの実回路。寄生 RC は含まない。
 条件: tt、VDD_DEC=5V、VCO_EN=VCTRL=0（インバータモード）、D[6:0]=k 固定、OUT は無負荷（バス容量のみ）。
 
@@ -219,6 +219,10 @@ VM（4 回の繰り返しの平均。同じ比のセルは DUT の大きさ順�
 - 021 / 053 / 085 / 117 の N_W は 2.60u → 2.70u に修正した（Wp/Wn 2.08 → 2.00、VM 1.534V → 1.522V）。
   DUT レイアウトを作り直し、トップの GDS ではセルを差し替え（`../layout/replace_dut.py`）、DRC クリーン / LVS 一致を確認した。
   修正していない ch の結果は、修正前のネットリストでの結果と最大 0.01mV の差で一致した。
+- バッティングタップ修正後の再実行（2026-10-23）: VCO の `cs_inv_5v0` / `cs_inv_x4_5v0` / `vco_bias_5v0` / `vco_buf_5v0` で、
+  基板と別ネット（ドレインなど）の S/D に接していたタップ（PCell の Bulk Tie）を外し、タップを別に置いた。
+  修正後の `../layout/workshop_inverter_fullDUT.gds` から抽出し直して（LVS 一致）全 128ch を再実行。
+  結果は修正前と全 128ch で一致（VOH / VOL / VM / 非選択 DUT 入力の差 0）。
 - **注意**: VDD_INV は 128 個の DUT で共通。5V 品を 5V で測ると、3.3V 品の DUT 64 個にも VDD_INV=5V がかかる
   （入力は MPD で VSS に固定されるが、電源と出力には 5V がかかる）。
   実チップでは 3.3V 品を壊さないよう、VDD_INV ≦ 3.3V で測るか、過電圧を許容するかを決めること。

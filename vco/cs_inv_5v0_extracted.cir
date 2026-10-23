@@ -1,14 +1,14 @@
-* Extracted by KLayout with GF180MCU LVS runset on : 17/10/2026 02:06
+* Extracted by KLayout with GF180MCU LVS runset on : 23/10/2026 05:01
 
 * cell cs_inv_5v0
 * pin SUB
 .SUBCKT cs_inv_5v0 SUB
 * device instance $1 r0 *1 2.97,7.835 pfet_05v0
-M$1 \$1 \$27 \$3 \$1 pfet_05v0 L=1U W=16U AS=6.2P AD=5.28P PS=23.1U PD=18.64U
+M$1 \$1 \$26 \$3 \$1 pfet_05v0 L=1U W=16U AS=6.2P AD=5.28P PS=23.1U PD=18.64U
 * device instance $5 r0 *1 9.36,7.835 pfet_05v0
-M$5 \$5 \$16 \$3 \$1 pfet_05v0 L=0.5U W=4U AS=2.16P AD=3.08P PS=5.08U PD=9.54U
+M$5 \$5 \$15 \$3 \$1 pfet_05v0 L=0.5U W=4U AS=2.16P AD=3.08P PS=5.08U PD=9.54U
 * device instance $6 r0 *1 6,1.775 nfet_05v0
-M$6 SUB \$26 \$6 SUB nfet_05v0 L=1U W=4U AS=1.98P AD=1.56P PS=7.98U PD=5.56U
+M$6 SUB \$25 \$6 SUB nfet_05v0 L=1U W=4U AS=1.98P AD=1.56P PS=7.98U PD=5.56U
 * device instance $8 r0 *1 9.36,1.775 nfet_05v0
-M$8 \$5 \$16 \$6 SUB nfet_05v0 L=0.6U W=2U AS=1.04P AD=1.46P PS=3.04U PD=5.46U
+M$8 \$5 \$15 \$6 SUB nfet_05v0 L=0.6U W=2U AS=1.04P AD=1.46P PS=3.04U PD=5.46U
 .ENDS cs_inv_5v0

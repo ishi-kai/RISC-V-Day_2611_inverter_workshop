@@ -844,7 +844,10 @@ X0_output74 _123_/ZN dec_out[44] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyb_1
 .subckt inv_dut_014 A Q VDD VSS
 .ends
 
+* inv_dut_015: pfet_05v0 W=16.20u L=1.80u / nfet_05v0 W=5.40u L=1.80u
 .subckt inv_dut_015 A Q VDD VSS
+MMP Q A VDD VDD pfet_05v0 W=16.20u L=1.80u
+MMN Q A VSS VSS nfet_05v0 W=5.40u L=1.80u
 .ends
 
 .subckt inv_dut_016 A Q VDD VSS

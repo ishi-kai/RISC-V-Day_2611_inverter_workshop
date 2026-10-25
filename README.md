@@ -27,7 +27,7 @@
 #### WSLイメージのダウンロード
 下記からダウンロードしてください。ダウンロード後、適当なディレクトリに解凍してください。  
 
-- [WSLイメージのダウンロード](https://1drv.ms/u/c/5b2da16fa1785921/IQAYKAR9Itt1QpfMKvila5a1AXS2cEI7ZkqgZE0gu0h6hfc?e=wejwlz)
+- [開発環境インストール済みWSLイメージ for Windows(Intel)](https://1drv.ms/u/c/5b2da16fa1785921/IQAYKAR9Itt1QpfMKvila5a1AXS2cEI7ZkqgZE0gu0h6hfc?e=wejwlz)
 
 
 #### WSLイメージのセットアップ
@@ -42,6 +42,22 @@ Windows PowerShellを起動して、WSLイメージを解凍したディレク�
 
 - ID: ishi-kai
 - Pass: ishi-kai
+
+
+#### VMWareイメージ for Mac のダウンロード
+下記からダウンロードしてください。ダウンロード後、適当なディレクトリに解凍して、VMWareに登録してください。  
+
+
+- [開発環境インストール済みVMWareイメージ for Mac(AppleSilicon)](https://1drv.ms/u/c/5b2da16fa1785921/IQCqPbDkydCDSIIDXWhnJPt4Ac6tlGZEmdSJ1KBrlScjH-c?e=tkbkHM)
+- [開発環境インストール済みVMWareイメージ for Mac(Intel)](https://1drv.ms/u/c/5b2da16fa1785921/IQB15NotWS2tSKXvKLnUxCBSAaj4ca_HSrEJUjqyo-AdrT0?e=qjW5OL)
+
+
+#### WSLイメージのIDとパスワード
+Ubuntu24.04ベースです。IDとパスワードは下記になっています。  
+
+- ID: ishi-kai
+- Pass: ishi-kai
+
 
 
 ## DUTについて
